@@ -8,6 +8,7 @@ import {APP_CONFIG} from './app.config';
 import {TokenInterceptorService} from './services/interceptors/token-interceptor.service';
 import {ErrorInterceptorService} from './services/interceptors/error-interceptor.service';
 import {CommonHeadersInterceptorService} from './services/interceptors/common-headers-interceptor.service';
+import {MaterialModule} from './MaterialModule';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {CommonHeadersInterceptorService} from './services/interceptors/common-he
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule,
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
