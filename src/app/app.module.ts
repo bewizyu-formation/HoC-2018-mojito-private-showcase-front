@@ -13,15 +13,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MenuComponent} from './menu/menu.component';
 import {MaterialModule} from './material.module';
-import {LoginComponent} from './Pages/Connexion/login/login.component';
-import {SignInComponent} from './Pages/Connexion/sign-in/sign-in.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    LoginComponent,
-    SignInComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
