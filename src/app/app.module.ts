@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, OnInit} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
@@ -11,7 +11,7 @@ import {CommonHeadersInterceptorService} from './services/interceptors/common-he
 // import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MenuComponent } from './menu/menu.component';
+import {MenuComponent} from './menu/menu.component';
 import {MaterialModule} from './material.module';
 import {LoginComponent} from './Pages/Connexion/login/login.component';
 import {SignInComponent} from './Pages/Connexion/sign-in/sign-in.component';
@@ -21,7 +21,7 @@ import {SignInComponent} from './Pages/Connexion/sign-in/sign-in.component';
     AppComponent,
     MenuComponent,
     LoginComponent,
-    SignInComponent
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
