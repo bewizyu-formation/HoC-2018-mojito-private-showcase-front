@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+h1 {
+  color: white;
+  margin: 0 auto;
+}
+
+span, a {
+  color: white;
+  text-decoration: none;
+  text-align: right;
+}
