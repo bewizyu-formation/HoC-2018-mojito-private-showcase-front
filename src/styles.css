@@ -1,5 +1,4 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 h1 {
   color: white;
