@@ -1,13 +1,10 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-h1 {
-  color: white;
-  margin: 0 auto;
+html{
+  height: 100%;
 }
 
-span, a {
-  color: white;
-  text-decoration: none;
-  text-align: right;
+body {
+  background-color: #9B9B9B;
+  height: 100%;
 }

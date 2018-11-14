@@ -1,15 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuComponent } from './menu.component';
+import { BackgroundImageComponent } from './background-image.component';
 import { MaterialModule } from '../material.module';
 
-describe('MenuComponent', () => {
-  let component: MenuComponent;
-  let fixture: ComponentFixture<MenuComponent>;
+describe('BackgroundImageComponent', () => {
+  let component: BackgroundImageComponent;
+  let fixture: ComponentFixture<BackgroundImageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuComponent ],
+      declarations: [ BackgroundImageComponent ],
       imports: [
         MaterialModule,
       ]
@@ -18,7 +18,7 @@ describe('MenuComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuComponent);
+    fixture = TestBed.createComponent(BackgroundImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -12,12 +12,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MenuComponent} from './menu/menu.component';
 import {MaterialModule} from './material.module';
+import { BackgroundImageComponent } from './background-image/background-image.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    BackgroundImageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
