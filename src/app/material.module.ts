@@ -7,7 +7,6 @@ import {NgModule} from '@angular/core';
     MatCheckboxModule,
     MatToolbarModule,
     MatMenuModule,
-    MatIconModule
-  ],
+    MatIconModule],
 })
 export class MaterialModule { }
