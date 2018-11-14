@@ -1,0 +1,20 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>music_note</mat-icon>
+    <span>Artiste</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Profil</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>input</mat-icon>
+    <span>Deconnexion</span>
+  </button>
+</mat-menu>

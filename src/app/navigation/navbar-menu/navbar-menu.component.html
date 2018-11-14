@@ -1,0 +1,37 @@
+<mat-toolbar class="color">
+  <h1>{{title}}</h1>
+
+  <!-- //////////////// MENUS NAVBAR DROITE //////////////// -->
+
+  <!-- routes :
+  /welcome
+
+  MENU "SE CONNECTER  |  S'INSCRIRE" -->
+  <app-menu-login-signin></app-menu-login-signin>
+
+
+  <!-- routes :
+  /home /pageAllEvents /artistPage/{Id}
+
+  MENU "PROFIL" -->
+  <app-menu-profil></app-menu-profil>
+  <!--*ngIf="router.valueOf(url) == '/home' || '/pageAllEvents' || '/artistPage/{Id}'"-->
+
+
+  <!-- //////////////// MENUS NAVBAR GAUCHE //////////////// -->
+
+  <!-- routes :
+   /home
+
+   MENU "HAMBURGER" -->
+  <app-menu-hamburger></app-menu-hamburger>
+
+
+  <!-- routes :
+  /signin /login /AllEventsPage /artistPage/{Id} /artistProfil/{Id}
+
+  MENU "ARROW" -->
+  <!--<app-menu-arrow></app-menu-arrow>-->
+</mat-toolbar>
+
+

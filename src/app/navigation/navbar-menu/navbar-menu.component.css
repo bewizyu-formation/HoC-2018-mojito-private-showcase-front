@@ -1,0 +1,27 @@
+mat-toolbar {
+  background-color: #595959;
+}
+
+app-menu-login-signin, app-menu-profil {
+  position: absolute;
+  right: 10px;
+}
+
+app-menu-arrow, app-menu-hamburger {
+  position: absolute;
+  left: 10px;
+}
+
+
+h1 {
+  font-size: 40px;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+

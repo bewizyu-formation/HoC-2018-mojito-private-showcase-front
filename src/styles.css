@@ -1,12 +1,7 @@
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 
-h1 {
-  color: white;
-  margin: 0 auto;
-}
 
-span, a {
-  color: white;
-  text-decoration: none;
-  text-align: right;
+body {
+  background-color: #B7B7B7 ;
+  margin: 0;
 }
