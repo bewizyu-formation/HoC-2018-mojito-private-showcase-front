@@ -4,10 +4,14 @@ mat-toolbar {
   color: white;
 }
 
-mat-toolbar > div {
+app-menu-login-signin, app-menu-profil {
   position: absolute;
-  right: 5%;
-  top: 20px;
+  right: 10px;
+}
+
+app-menu-arrow, app-menu-hamburger {
+  position: absolute;
+  left: 10px;
 }
 
 h1 {
@@ -18,10 +22,3 @@ h1 {
   left: 0;
   right: 0;
 }
-
-span {
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-a, a:hover { color: white; text-decoration: none; }
