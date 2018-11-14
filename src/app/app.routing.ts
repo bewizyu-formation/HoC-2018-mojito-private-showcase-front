@@ -5,7 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {HomeComponent} from './home/home.component';
+import { HomeComponent } from './home/home.component';
 
 // TABLEAU AVEC MES URLs LIES AUX COMPOSANTS
 export const appRoutes: Routes = [

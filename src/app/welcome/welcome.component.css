@@ -1,0 +1,71 @@
+section{
+  width: 50%;
+  margin: 0 auto;
+  color: #ffff;
+}
+
+.marginTop{
+  margin-top: 20px;
+}
+
+p:nth-of-type(1) {
+  font-size: 20px;
+}
+
+p:nth-of-type(2) {
+  font-size: 15px;
+}
+
+.flex-container {
+  margin: 50px 20px;
+  display: flex;
+}
+
+.flex-item {
+  background: #B8B6B6;
+  padding: 5px;
+  width: 275px;
+  height: 300px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 65px -1px rgba(0,0,0,0.51)
+}
+
+.flex-item:nth-of-type(2){
+  margin: 0 100px;
+}
+
+.image {
+  width: 175px;
+  height: 175px;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+.image-first{
+  background-image: url('http://media.nola.com/entertainment_impact_music/photo/john-lennon-guitarjpg-e1d6948bc678a692.jpg');
+}
+
+.image-second{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEbLOZHvitboylZPNHmAnLuNBVcXJbktVjBLB6Ir3BbpyvM9E6');
+  background-position-x: 75%;
+}
+
+.image-third {
+  background-image: url("https://minuitune.com/content/uploads/2017/07/Solidays-Tale-of-Us-5.jpg");
+  background-position-x: 50%;
+}
+
+.flex-item > img{
+  display: block;
+  margin: 50px auto;
+  border-radius: 50%;
+}
+
+.flex-item > p:nth-of-type(1){
+  font-size: 25px;
+}
+
+.flex-item > p:nth-of-type(2){
+  font-size: 15px;
+}

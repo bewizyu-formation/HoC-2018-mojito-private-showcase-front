@@ -12,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // MATERIAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from './material.module';
+import { MaterialModule } from './material.module';
+import { BackgroundImageComponent } from './background-image/background-image.component';
 
 // PAGES
 import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
@@ -39,6 +40,7 @@ import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component
 @NgModule({
   declarations: [
     AppComponent,
+    BackgroundImageComponent,
     WelcomeComponent,
     SigninComponent,
     LoginComponent,

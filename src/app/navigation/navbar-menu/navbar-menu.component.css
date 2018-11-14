@@ -1,5 +1,7 @@
 mat-toolbar {
   background-color: #595959;
+  font-family: "Helvetica Neue", sans-serif;
+  color: white;
 }
 
 app-menu-login-signin, app-menu-profil {
@@ -12,16 +14,11 @@ app-menu-arrow, app-menu-hamburger {
   left: 10px;
 }
 
-
 h1 {
   font-size: 40px;
   padding: 10px;
   text-align: center;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
   left: 0;
   right: 0;
 }
-
-
