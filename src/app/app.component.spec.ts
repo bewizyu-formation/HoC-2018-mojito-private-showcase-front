@@ -35,8 +35,7 @@ describe('AppComponent', () => {
       imports: [
         HttpClientModule,
         RouterTestingModule,
-        MaterialModule,
-        HttpClientModule
+        MaterialModule
       ],
       providers: [
         {provide: APP_CONFIG, useValue: environment},
