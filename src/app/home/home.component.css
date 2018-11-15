@@ -1,3 +1,12 @@
+button {
+  background: none;
+  border: none;
+}
+
+mat-icon, span {
+  color: white;
+}
+
 div {
   z-index: 1;
   position: absolute;
@@ -11,4 +20,3 @@ h1, app-star-rating {
   color: white;
   z-index: 2;
 }
-

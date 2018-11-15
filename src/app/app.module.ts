@@ -30,7 +30,7 @@ import { ListComponent } from './list/list.component';
 
 // ROUTES
 import {appRoutes } from './app.routing'; // mes routes
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
 import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
 import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
