@@ -1,0 +1,22 @@
+button {
+  background: none;
+  border: none;
+}
+
+mat-icon, span {
+  color: white;
+}
+
+div {
+  z-index: 1;
+  position: absolute;
+  background-color: grey;
+  opacity: 0.5;
+  height: 50%;
+  bottom: 0px;
+}
+
+h1, app-star-rating {
+  color: white;
+  z-index: 2;
+}
