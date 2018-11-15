@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuLoginSigninComponent } from './menu-login-signin.component';
+import { MaterialModule } from '../../material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('MenuLoginSigninComponent', () => {
   let component: MenuLoginSigninComponent;
@@ -8,7 +10,12 @@ describe('MenuLoginSigninComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuLoginSigninComponent ]
+      declarations: [ MenuLoginSigninComponent ],
+      imports : [
+        MaterialModule,
+        ReactiveFormsModule,
+        FormsModule
+      ]
     })
     .compileComponents();
   }));
