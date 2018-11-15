@@ -1,26 +1,36 @@
 import {
-  MatCheckboxModule, MatGridListModule,
-  MatIconModule, MatInputModule,
-  MatMenuModule, MatSnackBarModule,
-  MatToolbarModule, MatTooltipModule
+  MatButtonModule,
+  MatCheckboxModule,
+  MatIconModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatCardModule,
+  MatChipsModule,
+  MatInputModule,
+  MatGridListModule,
+  MatSnackBarModule,
+  MatTooltipModule
 } from '@angular/material';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
 import {NgModule} from '@angular/core';
 
 @NgModule({
   exports: [
     MatButtonModule,
     MatCheckboxModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatFormFieldModule,
     MatIconModule,
-    MatTooltipModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatChipsModule,
     MatInputModule,
     MatGridListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
   ],
 })
 export class MaterialModule { }

@@ -15,6 +15,9 @@ import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.compon
 import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
 import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
 import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component';
+import { MenuTitleComponent } from './navigation/menu-title/menu-title.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 describe('AppComponent', () => {
@@ -30,13 +33,17 @@ describe('AppComponent', () => {
         MenuProfilComponent,
         MenuLoginSigninComponent,
         MenuHamburgerComponent,
-        MenuArrowComponent
+        MenuArrowComponent,
+        MenuTitleComponent
       ],
       imports: [
         HttpClientModule,
         RouterTestingModule,
         MaterialModule,
-        HttpClientModule
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [
         {provide: APP_CONFIG, useValue: environment},
