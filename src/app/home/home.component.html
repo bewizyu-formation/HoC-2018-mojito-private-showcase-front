@@ -1,15 +1,20 @@
-<mat-grid-list cols="2" rowHeight="2:1">
+<mat-grid-list cols="4" rowHeight="2:2">
   <mat-grid-tile *ngFor="let image of images">
-    <img src="{{ image.url }}" alt="">
+    <div></div>
+    <img src="{{ image.url }} " alt="">
+    <div>
+      <h3> {{ image.title }} </h3>
+      <p> {{ description }} </p>
+        <app-list><app-rating></app-rating></app-list>
+    <button>
+      <mat-icon>remove_red_eye</mat-icon>
+      <span>Voir</span>
+    </button>
+    <button>
+      <mat-icon>calendar_today</mat-icon>
+      <span>Booker</span>
+    </button>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
 
-  <button>
-    <mat-icon>remove_red_eye</mat-icon>
-    <span>Voir</span>
-  </button>
-
-  <button>
-    <mat-icon>calendar_today</mat-icon>
-    <span>Booker</span>
-  </button>
