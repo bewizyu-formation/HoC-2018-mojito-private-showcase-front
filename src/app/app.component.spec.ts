@@ -5,19 +5,20 @@ import { APP_CONFIG } from './app.config';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material.module';
 
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './pages/homepage/home/home.component';
 
-import { BackgroundImageComponent } from './background-image/background-image.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
+import { BackgroundImageComponent } from './pages/navigation/background-image/background-image.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { NavbarMenuComponent } from './pages/navigation/navbar-menu/navbar-menu.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
-import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
-import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
-import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component';
-import { MenuTitleComponent } from './navigation/menu-title/menu-title.component';
+import { MenuProfilComponent } from './pages/navigation/menu-profil/menu-profil.component';
+import { MenuLoginSigninComponent } from './pages/navigation/menu-login-signin/menu-login-signin.component';
+import { MenuHamburgerComponent } from './pages/navigation/menu-hamburger/menu-hamburger.component';
+import { MenuArrowComponent } from './pages/navigation/menu-arrow/menu-arrow.component';
+import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 
 describe('AppComponent', () => {
@@ -43,7 +44,8 @@ describe('AppComponent', () => {
         BrowserAnimationsModule,
         NoopAnimationsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
       ],
       providers: [
         {provide: APP_CONFIG, useValue: environment},

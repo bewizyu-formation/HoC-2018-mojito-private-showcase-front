@@ -1,0 +1,31 @@
+<mat-grid-list cols="4" rowHeight="2:2">
+  <mat-grid-tile *ngFor="let artist of artists | slice:0:8">
+    <!--IMAGE DE FOND-->
+    <div class="image" [ngStyle]="{'background-image': 'url(' + artist.url + ')'}"> <!-- artist.url => artist.image -->
+      <!--BLOC DETAILS DE L'ARTISTE-->
+      <div class="text">
+        <!-- nom, description de l'artiste -->
+        <h2> {{ artist.title }} </h2> <!-- artist.name -->
+        <p> {{ description }} </p> <!-- artist.description -->
+
+        <section>
+          <!-- note de l'artiste -->
+          <app-list>
+            <app-rating></app-rating>
+          </app-list>
+
+          <!-- boutons VOIR & BOOK -->
+          <button [routerLink]="['/artist-page', artist.title, artist.id]">  <!-- remplacer 'artist.title' par 'artist.name' -->
+            <mat-icon>remove_red_eye</mat-icon>
+            <span>VOIR</span>
+          </button>
+
+          <button [routerLink]="['/event-create', artist.id]">
+            <mat-icon>calendar_today</mat-icon>
+            <span>BOOKER</span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
