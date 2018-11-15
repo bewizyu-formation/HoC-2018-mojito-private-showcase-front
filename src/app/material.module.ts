@@ -4,7 +4,8 @@ import {
   MatMenuModule, MatSnackBarModule,
   MatToolbarModule, MatTooltipModule
 } from '@angular/material';
-import { MatFormFieldModule } from  '@angular/material/form-field';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {NgModule} from '@angular/core';
 
