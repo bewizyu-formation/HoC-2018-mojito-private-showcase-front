@@ -16,17 +16,17 @@ import { BackgroundImageComponent } from './background-image/background-image.co
 
 // PAGES
 import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './signin/signin.component';
-import { LoginComponent } from './login/login.component';
-import { ArtistePageComponent } from './artiste-page/artiste-page.component';
-import { ArtistProfilComponent } from './artist-profil/artist-profil.component';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { PageEventsComponent } from './page-events/page-events.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { RatingComponent } from './rating/rating.component';
-import { ListComponent } from './list/list.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { HomeComponent } from './pages/homepage/home/home.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ArtistePageComponent } from './pages/artiste-page/artiste-page.component';
+import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
+import { CreateEventComponent } from './pages/create-event/create-event.component';
+import { PageEventsComponent } from './pages/page-events/page-events.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RatingComponent } from './pages/homepage/rating/rating.component';
+import { ListComponent } from './pages/homepage/list/list.component';
 
 // ROUTES
 import { appRoutes } from './app.routing'; // mes routes

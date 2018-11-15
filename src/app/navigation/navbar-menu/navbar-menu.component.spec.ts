@@ -8,6 +8,9 @@ import { MenuHamburgerComponent } from '../menu-hamburger/menu-hamburger.compone
 import { MenuArrowComponent } from '../menu-arrow/menu-arrow.component';
 import { MenuTitleComponent } from '../menu-title/menu-title.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import {MatGridListModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('NavbarMenuComponent', () => {
   let component: NavbarMenuComponent;
@@ -26,7 +29,8 @@ describe('NavbarMenuComponent', () => {
       imports: [
         MaterialModule,
         BrowserAnimationsModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        HttpClientModule
       ]
     })
     .compileComponents();

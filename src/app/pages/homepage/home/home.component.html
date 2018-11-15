@@ -1,0 +1,30 @@
+<mat-grid-list cols="3" rowHeight="2:2">
+  <mat-grid-tile *ngFor="let artist of artists | slice:0:6">
+    <!--IMAGE DE FOND-->
+    <img src="{{ artist.url }} " alt="">
+
+    <!--BLOC DETAILS DE L'ARTISTE-->
+    <div>
+      <!-- boutons VOIR & BOOK -->
+      <button [routerLink]="['/artist', artist.title, artist.id]"> // remplacer 'artist.title' par 'artist.name'
+        <mat-icon>remove_red_eye</mat-icon>
+        <span>VOIR</span>
+      </button>
+
+      <button [routerLink]="['/event-create', artist.id]">
+        <mat-icon>calendar_today</mat-icon>
+        <span>BOOKER</span>
+      </button>
+      <!-- nom, description de l'artiste -->
+      <h3> {{ artist.title }} </h3> // artist.name
+      <p> {{ description }} </p> // artist.description
+
+      <!-- note de l'artiste -->
+      <app-list>
+          <app-rating></app-rating>
+        </app-list>
+
+    </div>
+
+  </mat-grid-tile>
+</mat-grid-list>

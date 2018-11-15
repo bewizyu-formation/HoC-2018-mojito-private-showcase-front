@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import {RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-navbar-menu',
@@ -10,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarMenuComponent implements OnInit {
 
   title = 'Private ShowCase';
+  route: string;
 
   constructor() { }
 

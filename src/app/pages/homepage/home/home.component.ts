@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -11,22 +11,19 @@ export class HomeComponent implements OnInit {
 
   description = 'lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsum';
   url = 'https://jsonplaceholder.typicode.com/photos';
-  images: any[];
+  artists: any[];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    // GET ALL ARTISTS ON INIT
     this.http.get(this.url)
       .subscribe((response: any[]) => {
-        this.images = response;
+        this.artists = response;
       });
 
-    // Ajouter private route: ActivatedRoute dans le constructor
-    // this.route.paramMap
-    //   .subscribe(params => {
-    //     console.log(params);
-    //   });
-    }
+    console.log(this.activatedRoute.snapshot['_routerState'].url);
+}
 }
