@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<mat-grid-list cols="4" rowHeight="2:2">
+  <mat-grid-tile *ngFor="let image of images">
+    <div></div>
+    <img src="{{ image.url }} " alt="">
+    <div>
+      <h3> {{ image.title }} </h3>
+      <p> {{ description }} </p>
+        <app-list><app-rating></app-rating></app-list>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
