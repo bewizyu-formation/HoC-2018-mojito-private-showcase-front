@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -19,17 +18,15 @@ import { BackgroundImageComponent } from './background-image/background-image.co
 import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
-
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
-
 import { ArtistePageComponent } from './artiste-page/artiste-page.component';
 import { ArtistProfilComponent } from './artist-profil/artist-profil.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { PageEventsComponent } from './page-events/page-events.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-import {MatGridListModule} from '@angular/material/grid-list';
+import { RatingComponent } from './rating/rating.component';
+import { ListComponent } from './list/list.component';
 
 // ROUTES
 import {appRoutes } from './app.routing'; // mes routes
@@ -38,6 +35,7 @@ import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-lo
 import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
 import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
 import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +49,8 @@ import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component
     ArtistProfilComponent,
     CreateEventComponent,
     PageEventsComponent,
+    RatingComponent,
+    ListComponent,
     NavbarMenuComponent,
     NotFoundComponent,
     MenuLoginSigninComponent,
@@ -60,12 +60,11 @@ import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    MatGridListModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
