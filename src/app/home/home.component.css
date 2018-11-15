@@ -5,6 +5,7 @@ div {
   opacity: 0.5;
   height: 50%;
   bottom: 0px;
+  width: 100%;
 }
 
 h1, app-star-rating {
@@ -12,3 +13,10 @@ h1, app-star-rating {
   z-index: 2;
 }
 
+mat-grid-list {
+  margin: 50px;
+}
+
+app-rating {
+
+}

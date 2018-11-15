@@ -8,12 +8,6 @@
           <tbody>
           <tr *ngFor="let item of items">
             <td>
-              {{item.company}}
-            </td>
-            <td>
-              {{item.contact}}
-            </td>
-            <td>
               <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
             </td>
             <td>
@@ -24,6 +18,5 @@
         </table>
       </div>
     </div>
-    <p *ngIf='ratingClicked'>The Company {{itemIdRatingClicked}} has been given {{ratingClicked}} stars</p>
   </div>
 </div>
