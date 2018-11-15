@@ -60,8 +60,8 @@ export class AppComponent {
 
 
 
-  // OnUploadFile() {
-// //Upload file here send a binary data
+//  OnUploadFile() {
+//  Upload file here send a binary data
 //     this.http.post(‘yourdomain.com/file-upload’, this.selectedFile)
 //   .subscribe(…);
 //   }

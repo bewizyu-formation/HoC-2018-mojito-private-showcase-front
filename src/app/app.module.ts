@@ -8,28 +8,39 @@ import { TokenInterceptorService } from './services/interceptors/token-intercept
 import { ErrorInterceptorService } from './services/interceptors/error-interceptor.service';
 import { CommonHeadersInterceptorService } from './services/interceptors/common-headers-interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// MATERIAL
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { BackgroundImageComponent } from './background-image/background-image.component';
+
+// PAGES
+import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
-
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
-
 import { ArtistePageComponent } from './artiste-page/artiste-page.component';
 import { ArtistProfilComponent } from './artist-profil/artist-profil.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { PageEventsComponent } from './page-events/page-events.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MaterialModule} from './material.module';
-import {MatIcon, MatIconModule, MatInputModule} from '@angular/material';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { StarRatingComponent } from './star-rating/star-rating.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { RatingComponent } from './rating/rating.component';
 import { ListComponent } from './list/list.component';
+
+// ROUTES
+import {appRoutes } from './app.routing'; // mes routes
+import {RouterModule} from '@angular/router';
+import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
+import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
+import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
+import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    BackgroundImageComponent,
     WelcomeComponent,
     SigninComponent,
     LoginComponent,
@@ -39,7 +50,13 @@ import { ListComponent } from './list/list.component';
     CreateEventComponent,
     PageEventsComponent,
     RatingComponent,
-    ListComponent
+    ListComponent,
+    NavbarMenuComponent,
+    NotFoundComponent,
+    MenuLoginSigninComponent,
+    MenuProfilComponent,
+    MenuHamburgerComponent,
+    MenuArrowComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +65,7 @@ import { ListComponent } from './list/list.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     {provide: APP_CONFIG, useValue: environment},
