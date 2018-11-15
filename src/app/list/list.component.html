@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <div class='container'>
-    <h2>Rating Component</h2>
     <div class="panel panel-primary">
       <div class="table-responsive">
         <table class="table">
@@ -9,9 +8,6 @@
           <tr *ngFor="let item of items">
             <td>
               <app-rating [rating]='item.rating' [itemId]='item.id' (ratingClick)='ratingComponentClick($event)'></app-rating>
-            </td>
-            <td>
-              {{item.rating}} Stars
             </td>
           </tr>
           </tbody>

@@ -20,6 +20,8 @@ export class RatingComponent implements OnInit {
       itemId: this.itemId,
       rating: rating
     });
+
+
   }
 }
 

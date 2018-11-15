@@ -2,10 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarMenuComponent } from './navbar-menu.component';
 import { MaterialModule } from '../../material.module';
-import {MenuLoginSigninComponent} from '../menu-login-signin/menu-login-signin.component';
-import {MenuProfilComponent} from '../menu-profil/menu-profil.component';
-import {MenuHamburgerComponent} from '../menu-hamburger/menu-hamburger.component';
-import {MenuArrowComponent} from '../menu-arrow/menu-arrow.component';
+import { MenuLoginSigninComponent } from '../menu-login-signin/menu-login-signin.component';
+import { MenuProfilComponent } from '../menu-profil/menu-profil.component';
+import { MenuHamburgerComponent } from '../menu-hamburger/menu-hamburger.component';
+import { MenuArrowComponent } from '../menu-arrow/menu-arrow.component';
+import { MenuTitleComponent } from '../menu-title/menu-title.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('NavbarMenuComponent', () => {
   let component: NavbarMenuComponent;
@@ -18,10 +20,13 @@ describe('NavbarMenuComponent', () => {
         MenuProfilComponent,
         MenuLoginSigninComponent,
         MenuHamburgerComponent,
-        MenuArrowComponent
+        MenuArrowComponent,
+        MenuTitleComponent
       ],
       imports: [
         MaterialModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule
       ]
     })
     .compileComponents();

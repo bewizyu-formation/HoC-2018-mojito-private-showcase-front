@@ -1,7 +1,49 @@
-<p>
-  signin works!
-</p>
+<div class="form-container">
+  <h3>Formulaire d'inscription</h3>
+  <mat-form-field>
+    <input matInput placeholder="Identifiant">
+  </mat-form-field>
 
-<button mat-raised-button routerLink="">Annuler</button>
-<button mat-raised-button color="primary" routerLink="/home">Valider</button>
+  <mat-form-field>
+    <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Confirmez le mot de passe" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Ville">
+  </mat-form-field>
+
+  <form [formGroup]="options">
+  <mat-checkbox formControlName="hideRequired" required>
+    <p class="color">Êtes-vous un artiste proposant des prestations privées?</p>
+  </mat-checkbox>
+  </form>
+
+  <div class="artist" *ngIf="options.valid">
+    <mat-form-field>
+      <input matInput placeholder="Nom d'artiste">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="form-button">
+    <button mat-raised-button routerLink="" class="color-annuler">Annuler</button>
+    <button mat-raised-button routerLink="/home" class="color-valider">Valider</button>
+  </div>
+</div>
+
+
 
