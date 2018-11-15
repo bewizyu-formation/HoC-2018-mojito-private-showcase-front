@@ -29,9 +29,11 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { PageEventsComponent } from './page-events/page-events.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import {MatGridListModule} from '@angular/material/grid-list';
+
 // ROUTES
 import {appRoutes } from './app.routing'; // mes routes
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
 import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
 import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
@@ -63,6 +65,7 @@ import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatGridListModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

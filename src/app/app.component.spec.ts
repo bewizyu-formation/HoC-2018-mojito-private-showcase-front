@@ -30,6 +30,7 @@ describe('AppComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         MaterialModule,
+        HttpClientModule
       ],
       providers: [
         {provide: APP_CONFIG, useValue: environment},

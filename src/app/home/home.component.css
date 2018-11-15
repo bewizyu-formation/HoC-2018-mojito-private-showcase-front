@@ -1,0 +1,10 @@
+
+
+button {
+  background: none;
+  border: none;
+}
+
+mat-icon, span {
+  color: white;
+}
