@@ -5,7 +5,7 @@ import { APP_CONFIG } from './app.config';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material.module';
 
-import {HomeComponent} from './home/home.component';
+import { HomeComponent } from './home/home.component';
 
 import { BackgroundImageComponent } from './background-image/background-image.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -18,7 +18,6 @@ import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component
 import { MenuTitleComponent } from './navigation/menu-title/menu-title.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

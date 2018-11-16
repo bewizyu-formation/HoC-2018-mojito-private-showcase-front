@@ -8,7 +8,9 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 })
 export class SigninComponent implements OnInit {
 
-  options: FormGroup;
+  emailCtrl: FormControl;
+  passwordCtrl: FormControl;
+  userForm: FormGroup;
 
   hide = true;
 
@@ -20,9 +22,17 @@ export class SigninComponent implements OnInit {
         '';
   }
   constructor(fb: FormBuilder) {
-    this.options = fb.group({
-      hideRequired: false,
+
+    // Création des contrôles
+    this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
+    this.passwordCtrl = fb.control('');
+    this.userForm = fb.group({
+      email: this.emailCtrl,
+      password: this.passwordCtrl
     });
+  }
+    handleSubmit() {
+    console.log(this.userForm.value);
   }
   ngOnInit() {
   }
