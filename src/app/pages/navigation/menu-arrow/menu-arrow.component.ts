@@ -11,5 +11,4 @@ export class MenuArrowComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
