@@ -12,30 +12,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // MATERIAL
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { BackgroundImageComponent } from './background-image/background-image.component';
+import { BackgroundImageComponent } from './pages/navigation/background-image/background-image.component';
 
 // PAGES
-import { NavbarMenuComponent } from './navigation/navbar-menu/navbar-menu.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './signin/signin.component';
-import { LoginComponent } from './login/login.component';
-import { ArtistePageComponent } from './artiste-page/artiste-page.component';
-import { ArtistProfilComponent } from './artist-profil/artist-profil.component';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { PageEventsComponent } from './page-events/page-events.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { RatingComponent } from './rating/rating.component';
-import { ListComponent } from './list/list.component';
+import { NavbarMenuComponent } from './pages/navigation/navbar-menu/navbar-menu.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { HomeComponent } from './pages/homepage/home/home.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
+import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
+import { CreateEventComponent } from './pages/create-event/create-event.component';
+import { PageEventsComponent } from './pages/page-events/page-events.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RatingComponent } from './pages/homepage/rating/rating.component';
+import { ListComponent } from './pages/homepage/list/list.component';
 
 // ROUTES
 import { appRoutes } from './app.routing'; // mes routes
 import { RouterModule } from '@angular/router';
-import { MenuLoginSigninComponent } from './navigation/menu-login-signin/menu-login-signin.component';
-import { MenuProfilComponent } from './navigation/menu-profil/menu-profil.component';
-import { MenuHamburgerComponent } from './navigation/menu-hamburger/menu-hamburger.component';
-import { MenuArrowComponent } from './navigation/menu-arrow/menu-arrow.component';
-import { MenuTitleComponent } from './navigation/menu-title/menu-title.component';
+import { MenuLoginSigninComponent } from './pages/navigation/menu-login-signin/menu-login-signin.component';
+import { MenuProfilComponent } from './pages/navigation/menu-profil/menu-profil.component';
+import { MenuHamburgerComponent } from './pages/navigation/menu-hamburger/menu-hamburger.component';
+import { MenuArrowComponent } from './pages/navigation/menu-arrow/menu-arrow.component';
+import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.component';
 
 
 @NgModule({
@@ -46,7 +46,7 @@ import { MenuTitleComponent } from './navigation/menu-title/menu-title.component
     SigninComponent,
     LoginComponent,
     HomeComponent,
-    ArtistePageComponent,
+    ArtistPageComponent,
     ArtistProfilComponent,
     CreateEventComponent,
     PageEventsComponent,
