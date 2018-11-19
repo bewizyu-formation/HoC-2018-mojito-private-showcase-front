@@ -8,6 +8,18 @@
   border-radius: 15px;
 }
 
+.passwords{
+  display: flex;
+  flex-direction: column;
+}
+
+.noMatch{
+  position: absolute;
+  top: 50px;
+  color: red;
+  font-size: 12px;
+}
+
 .artist{
   display: flex;
   flex-direction: column;
@@ -18,7 +30,7 @@
 }
 
 .form-button > button {
-  margin: 0 1rem;
+  margin: 2rem 1rem 1rem 1rem;
 }
 
 .color-annuler {
