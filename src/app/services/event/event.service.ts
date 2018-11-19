@@ -9,4 +9,6 @@ export class EventService {
   private url2 = 'https://jsonplaceholder.typicode.com/photos';
 
   constructor(private http: HttpClient) { }
+
+
 }

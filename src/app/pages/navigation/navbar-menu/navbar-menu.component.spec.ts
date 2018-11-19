@@ -9,7 +9,7 @@ import { MenuArrowComponent } from '../menu-arrow/menu-arrow.component';
 import { MenuTitleComponent } from '../menu-title/menu-title.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NavbarMenuComponent', () => {
   let component: NavbarMenuComponent;

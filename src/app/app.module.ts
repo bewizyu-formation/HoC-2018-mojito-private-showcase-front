@@ -36,9 +36,9 @@ import { MenuProfilComponent } from './pages/navigation/menu-profil/menu-profil.
 import { MenuHamburgerComponent } from './pages/navigation/menu-hamburger/menu-hamburger.component';
 import { MenuArrowComponent } from './pages/navigation/menu-arrow/menu-arrow.component';
 import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.component';
-import {UserService} from './services/user/user.service';
-import {EventService} from './services/event/event.service';
-import {ArtistService} from './services/artist/artist.service';
+import { UserService } from './services/user/user.service';
+import { EventService } from './services/event/event.service';
+import { ArtistService } from './services/artist/artist.service';
 
 
 @NgModule({

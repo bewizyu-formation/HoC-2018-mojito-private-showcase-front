@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ArtistService} from '../../../services/artist/artist.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ArtistService } from '../../../services/artist/artist.service';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +14,14 @@ export class HomeComponent implements OnInit {
   url = 'https://jsonplaceholder.typicode.com/photos';
   artists: any[];
 
-  constructor(
-    private service: ArtistService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router) {
+  constructor(private http: HttpClient,
+              private service: ArtistService,
+              private router: Router
+  ) {
   }
 
   ngOnInit() {
-    // GET ALL ARTISTS ON INIT
+    // GET ALL ARTISTS ON INIT FROM ARTIST SERVICES
     this.service.getAll()
       .subscribe((response: any[]) => {
         this.artists = response;
@@ -32,17 +33,13 @@ export class HomeComponent implements OnInit {
         }
 
       });
-
-    console.log(this.activatedRoute.snapshot['_routerState'].url);
 }
-
-
 
   getArtist(artist): void {
     // On recupere les infos de notre artiste
     this.service.getArtist(artist);
     // Il faut les passer en params de notre prochaine route
-      // A faire ici //
+    // A faire ici //
     // Puis on navigue vers notre page artist/id
     this.router.navigate(['/artist-page', artist.title, artist.id]); // Puis
   }

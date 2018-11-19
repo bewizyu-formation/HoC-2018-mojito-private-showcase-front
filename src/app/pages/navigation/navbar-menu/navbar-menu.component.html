@@ -7,14 +7,14 @@
   /welcome
 
   MENU "SE CONNECTER  |  S'INSCRIRE" -->
-  <app-menu-login-signin></app-menu-login-signin>
+  <app-menu-login-signin *ngIf="isWelcome"></app-menu-login-signin>
 
 
   <!-- routes :
   /home /pageAllEvents /artistPage/{Id}
 
   MENU "PROFIL" -->
-  <app-menu-profil></app-menu-profil>
+  <app-menu-profil *ngIf="isHome || isPageEvents || isArtistPage"></app-menu-profil>
   <!--*ngIf="router.valueOf(url) == '/home' || '/pageAllEvents' || '/artistPage/{Id}'"-->
 
 
@@ -24,14 +24,14 @@
    /home
 
    MENU "HAMBURGER" -->
-  <app-menu-hamburger></app-menu-hamburger>
+  <app-menu-hamburger *ngIf="isHome"></app-menu-hamburger>
 
 
   <!-- routes :
   /signin /login /AllEventsPage /artistPage/{Id} /artistProfil/{Id}
 
   MENU "ARROW" -->
-  <app-menu-arrow (click)="goBack()"></app-menu-arrow>
+  <app-menu-arrow (click)="goBack()" *ngIf="isSigin || isLogin || isPageEvents || isArtistPage || isArtistProfil"></app-menu-arrow>
 </mat-toolbar>
 
 
