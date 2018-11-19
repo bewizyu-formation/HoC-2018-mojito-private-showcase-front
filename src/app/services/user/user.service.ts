@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {UserRepository} from './user.repository';
-import {HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UserService {
    */
   public token: string;
 
-  constructor(private userRepository: UserRepository) {
+  constructor(private userRepository: UserRepository, private http: HttpClient) {
   }
 
   /**
