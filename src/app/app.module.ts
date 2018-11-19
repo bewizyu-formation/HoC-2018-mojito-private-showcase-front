@@ -36,6 +36,9 @@ import { MenuProfilComponent } from './pages/navigation/menu-profil/menu-profil.
 import { MenuHamburgerComponent } from './pages/navigation/menu-hamburger/menu-hamburger.component';
 import { MenuArrowComponent } from './pages/navigation/menu-arrow/menu-arrow.component';
 import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.component';
+import { UserService } from './services/user/user.service';
+import { EventService } from './services/event/event.service';
+import { ArtistService } from './services/artist/artist.service';
 
 
 @NgModule({
@@ -71,10 +74,13 @@ import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.com
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    UserService,
+    EventService,
+    ArtistService,
     {provide: APP_CONFIG, useValue: environment},
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
-    {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true},
+    {provide : HTTP_INTERCEPTORS, useClass : ErrorInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,7 @@
 import {
+  MatDialogModule,
+  MatTableModule,
+  MatProgressSpinnerModule,
   MatButtonModule,
   MatCheckboxModule,
   MatIconModule,
@@ -19,6 +22,9 @@ import {NgModule} from '@angular/core';
 
 @NgModule({
   exports: [
+    MatDialogModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,

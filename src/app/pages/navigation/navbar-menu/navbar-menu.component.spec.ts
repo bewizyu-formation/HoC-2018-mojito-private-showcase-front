@@ -7,10 +7,9 @@ import { MenuProfilComponent } from '../menu-profil/menu-profil.component';
 import { MenuHamburgerComponent } from '../menu-hamburger/menu-hamburger.component';
 import { MenuArrowComponent } from '../menu-arrow/menu-arrow.component';
 import { MenuTitleComponent } from '../menu-title/menu-title.component';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import {MatGridListModule} from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NavbarMenuComponent', () => {
   let component: NavbarMenuComponent;
@@ -30,7 +29,8 @@ describe('NavbarMenuComponent', () => {
         MaterialModule,
         BrowserAnimationsModule,
         NoopAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();

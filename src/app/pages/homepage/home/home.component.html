@@ -15,7 +15,7 @@
           </app-list>
 
           <!-- boutons VOIR & BOOK -->
-          <button [routerLink]="['/artist-page', artist.title, artist.id]">  <!-- remplacer 'artist.title' par 'artist.name' -->
+          <button (click)="getArtist(artist)">
             <mat-icon>remove_red_eye</mat-icon>
             <span>VOIR</span>
           </button>
