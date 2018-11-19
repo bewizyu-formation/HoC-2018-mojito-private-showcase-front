@@ -11,7 +11,8 @@ import {
   MatInputModule,
   MatGridListModule,
   MatSnackBarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 import {NgModule} from '@angular/core';
@@ -30,7 +31,8 @@ import {NgModule} from '@angular/core';
     MatInputModule,
     MatGridListModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatAutocompleteModule
   ],
 })
 export class MaterialModule { }

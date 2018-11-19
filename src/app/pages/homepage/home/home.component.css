@@ -1,0 +1,50 @@
+button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+mat-icon, span {
+  color: white;
+}
+
+.image {
+  /*width: 400px;*/
+  height: 400px;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.text {
+  z-index: 1;
+  background-color: rgba(76, 76, 76, 0.63);
+  width: 370px;
+  height: 170px;
+  padding: 15px;
+}
+
+section {
+  display: flex;
+  align-items: center;
+}
+
+
+h1, app-star-rating {
+  color: white;
+}
+
+mat-grid-list {
+  margin: 50px;
+}
+
+p, h1, h2 {
+  color: white;
+}
+
+mat-icon {
+   margin-right: 7px;
+ }
