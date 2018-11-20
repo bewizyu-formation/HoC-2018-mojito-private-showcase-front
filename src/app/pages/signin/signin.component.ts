@@ -173,7 +173,7 @@ export class SigninComponent implements OnInit {
           .subscribe((data: any[]) => {
             console.log(data);
             this.cities = data;
-          });
+        });
       },
     );
   }
