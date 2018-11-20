@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, Validators, FormGroup, AbstractControl} from '@angular/forms';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
@@ -11,6 +11,9 @@ export class SigninComponent implements OnInit {
 
   url = 'https://geo.api.gouv.fr/communes?nom=';
   cities: any[];
+  API_BASE_URL: any = 'localhost:8080/';
+  API_USERS: any = 'users';
+
 
   public id: FormControl;
   public email: FormControl;
@@ -45,34 +48,40 @@ export class SigninComponent implements OnInit {
     this.userForm = fb.group({
       id: this.id,
       email: this.email,
-      passwords : fb.group({
+      passwords: fb.group({
           password: this.password,
           confirmPassword: this.confirmPassword
         },
-        { validator: [
+        {
+          validator: [
             this.matchingPasswords,
-          ] }
+          ]
+        }
       ),
       city: this.city,
       artistName: this.artistName,
-      artistDescription: this. artistDescription
+      artistDescription: this.artistDescription
     });
-
   }
+
+  /* ----------- VARIABLES D'ENVIRONNEMENT ----------- */
 
   /* ----------- VISIBLE FOR PASSWORD ----------- */
   hide = true;
   /* ----------- SHOW ARTIST SIGNIN ----------- */
-  visible =  false;
+  visible = false;
+
   artistShow() {
     this.visible = !this.visible;
   }
+
   /* ----------- ERROR MESSAGE ID ----------- */
   getErrorMessageId() {
     if (this.id.hasError('required')) {
       return 'L\'identifiant est requis';
     }
   }
+
   /* ----------- ERROR MESSAGE EMAIL ----------- */
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
@@ -82,10 +91,11 @@ export class SigninComponent implements OnInit {
       return 'L\'email est invalide';
     }
   }
+
   /* ----------- ERROR MESSAGE PASSWORD ----------- */
   getErrorMessagePassword() {
     if (this.password.hasError('required')) {
-      return  'Le mot de passe est requis';
+      return 'Le mot de passe est requis';
     }
     if (this.password.hasError('minlength')) {
       return 'Le mot de passe doit comporter 8 caractères minimum,';
@@ -94,56 +104,80 @@ export class SigninComponent implements OnInit {
       return 'Le mot de passe doit comporter au moins une majuscule, une minuscule et un chiffre';
     }
   }
-  /* ----------- MATCH PASSWORD ----------- */
-  private matchingPasswords( control: AbstractControl ) {
-    const password = control.get( 'password' );
-    const confirm = control.get( 'confirmPassword' );
 
-    if ( !password || !confirm ) {
+  /* ----------- MATCHING PASSWORD ----------- */
+  private matchingPasswords(control: AbstractControl) {
+    const password = control.get('password');
+    const confirm = control.get('confirmPassword');
+
+    if (!password || !confirm) {
       return null;
     }
 
     if (password.invalid) {
-      return {invalidPassword : true};
+      return {invalidPassword: true};
     }
 
     console.log(password.value);
     console.log(confirm.value);
     console.log(password.value === confirm.value);
 
-    return password.value === confirm.value ? null : { nomatch: true };
+    return password.value === confirm.value ? null : {nomatch: true};
   }
+
   /* ----------- ERROR MESSAGE CITY ----------- */
   getErrorMessageCity() {
     if (this.city.hasError('required')) {
       return 'Le nom de la ville est requis';
     }
   }
+
   /* ----------- SUBMIT FORM ----------- */
   handleSubmit() {
     console.log(this.userForm.value);
-
     const city = this.cities.find(value => value.nom === this.userForm.value.city);
     console.log('VILLE : ', city);
-
-    // console.log(this.userForm.value.password);
+    this.postUser();
   }
+
+  /* ----------- SUBMIT FORM API USER ----------- */
+  postUser() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'my-auth-token'
+      })
+    };
+
+    return this.http.post(`${this.API_BASE_URL}${this.API_USERS}`, this.userForm.value, httpOptions)
+      .subscribe(
+        data => {
+          console.log('POST Request is successful', data);
+        },
+        error => {
+          console.log('Error', error);
+        }
+      );
+  }
+
   /* ----------- GOOGLE API CITY NAME ----------- */
   private cityNameApi(datas) {
     return this.http.get(datas);
   }
+
   /* ----------- AUTO COMPLETE  ----------- */
   private cityName(): any {
     this.city.valueChanges.subscribe(
       (value) => {
         this.cityNameApi(`${this.url}${value}`)
           .subscribe((data: any[]) => {
-              console.log(data);
-              this.cities = data;
+            console.log(data);
+            this.cities = data;
           });
-        },
-      );
-    }
+      },
+    );
+  }
+
   ngOnInit() {
     this.cityName();
   }
