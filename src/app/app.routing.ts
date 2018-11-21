@@ -11,6 +11,8 @@ import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { PageEventsComponent } from './pages/page-events/page-events.component';
 import {ContactComponent} from './pages/contact/contact.component';
+import {UserProfileComponent} from './pages/user-profile/user-profile.component';
+import {DisconnectComponent} from './pages/disconnect/disconnect.component';
 
 // TABLEAU AVEC MES URLs LIES AUX COMPOSANTS
 export const appRoutes: Routes = [
@@ -24,6 +26,8 @@ export const appRoutes: Routes = [
   { path: 'artist-profil/:artistId', component: ArtistProfilComponent },
   { path: 'event-create/:eventId', component: CreateEventComponent },
   { path: 'events', component: PageEventsComponent },
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'disconnect', component: DisconnectComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', component: NotFoundComponent },
   { path: '',

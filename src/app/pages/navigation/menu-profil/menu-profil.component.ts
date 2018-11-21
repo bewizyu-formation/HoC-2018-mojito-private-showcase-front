@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-profil',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuProfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  navigateToArtisteProfil() {
+    return this.router.navigate(['artist-page/:artistName/:artistId']);
+  }
+
+  navigateToUserProfil() {
+    return this.router.navigate(['user-profile']);
+  }
+
+  navigateToDisconnect() {
+    return this.router.navigate(['disconnect']);
+  }
 }
