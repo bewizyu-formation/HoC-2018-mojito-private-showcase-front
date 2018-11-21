@@ -1,0 +1,25 @@
+.global {
+  background-color: white;
+  height: 59rem;
+  width: 80rem;
+  margin: auto;
+}
+
+#items {
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+h3 {
+  color: grey;
+}
+
+section {
+  width: 900px;
+  height: 130px;
+  background-color: white;
+  box-shadow: 2px 1px 1px 1px grey;
+  margin: auto;
+}
+

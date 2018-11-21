@@ -3,18 +3,19 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToHome()">
     <mat-icon>home</mat-icon>
-    <span>Acceuil</span>
+    <span>Accueil</span>
   </button>
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToEvents()">
     <mat-icon>event</mat-icon>
     <span>Evenements</span>
   </button>
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToContacts()">
     <mat-icon>group</mat-icon>
     <span>Contacts</span>
   </button>
 </mat-menu>
+

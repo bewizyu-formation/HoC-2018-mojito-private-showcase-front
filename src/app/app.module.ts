@@ -39,6 +39,7 @@ import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.com
 import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
 import { ArtistService } from './services/artist/artist.service';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ArtistService } from './services/artist/artist.service';
     MenuProfilComponent,
     MenuHamburgerComponent,
     MenuArrowComponent,
-    MenuTitleComponent
+    MenuTitleComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
