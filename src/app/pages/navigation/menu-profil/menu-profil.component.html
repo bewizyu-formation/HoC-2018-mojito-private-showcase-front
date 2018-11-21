@@ -3,17 +3,17 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToArtisteProfil()">
     <mat-icon>music_note</mat-icon>
     <span>Artiste</span>
   </button>
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToUserProfil()">
     <mat-icon>settings</mat-icon>
     <span>Profil</span>
   </button>
 
-  <button mat-menu-item>
+  <button mat-menu-item (click)="navigateToDisconnect()">
     <mat-icon>input</mat-icon>
     <span>Deconnexion</span>
   </button>

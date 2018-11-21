@@ -23,4 +23,6 @@ export class ArtistPageComponent implements OnInit {
     //   let artistRating = combined[1].get('artistRating');
     // })
   }
+
+
 }
