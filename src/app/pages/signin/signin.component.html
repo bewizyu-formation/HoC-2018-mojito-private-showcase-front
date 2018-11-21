@@ -2,8 +2,8 @@
   <h3>Formulaire d'inscription</h3>
 
   <mat-form-field>
-    <input matInput placeholder="Identifiant" name="id" formControlName="id">
-    <mat-error *ngIf="id.invalid">{{getErrorMessageId()}}</mat-error>
+    <input matInput placeholder="Pseudo" name="username" formControlName="username">
+    <mat-error *ngIf="username.invalid">{{getErrorMessageId()}}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -44,7 +44,7 @@
     </mat-checkbox>
   </form>
 
-  <div class="artist" *ngIf="visible">
+  <div class="artist" *ngIf="isArtiste">
     <mat-form-field>
       <input matInput placeholder="Nom d'artiste" name="artistName" formControlName="artistName">
     </mat-form-field>

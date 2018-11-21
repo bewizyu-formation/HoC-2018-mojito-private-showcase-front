@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, Validators, FormGroup, AbstractControl} from '@angular/forms';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {EnvironmentService} from '../../services/environment.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,8 +12,9 @@ export class SigninComponent implements OnInit {
 
   url = 'https://geo.api.gouv.fr/communes?nom=';
   cities: any[];
+  API_USERS: any = 'users';
 
-  public id: FormControl;
+  public username: FormControl;
   public email: FormControl;
   public password: FormControl;
   public confirmPassword: FormControl;
@@ -21,10 +23,18 @@ export class SigninComponent implements OnInit {
   public artistDescription;
   public userForm: FormGroup;
 
-  constructor(fb: FormBuilder, private http: HttpClient) {
+  /* ----------- VARIABLES D'ENVIRONNEMENT ----------- */
+
+  /* ----------- VISIBLE FOR PASSWORD ----------- */
+  hide = true;
+
+  /* ----------- SHOW ARTIST SIGNIN ----------- */
+  isArtiste = false;
+
+  constructor(fb: FormBuilder, private http: HttpClient, private env: EnvironmentService) {
 
     /* ----------- IDENTIFIANT ----------- */
-    this.id = fb.control('', [Validators.required]);
+    this.username = fb.control('', [Validators.required]);
 
     /* ----------- EMAIL ----------- */
     this.email = fb.control('', [Validators.required, Validators.email]);
@@ -43,36 +53,36 @@ export class SigninComponent implements OnInit {
 
     // Création du groupe (aka le formulaire)
     this.userForm = fb.group({
-      id: this.id,
+      username: this.username,
       email: this.email,
-      passwords : fb.group({
+      passwords: fb.group({
           password: this.password,
           confirmPassword: this.confirmPassword
         },
-        { validator: [
+        {
+          validator: [
             this.matchingPasswords,
-          ] }
+          ]
+        }
       ),
       city: this.city,
       artistName: this.artistName,
-      artistDescription: this. artistDescription
+      artistDescription: this.artistDescription
     });
-
   }
 
-  /* ----------- VISIBLE FOR PASSWORD ----------- */
-  hide = true;
-  /* ----------- SHOW ARTIST SIGNIN ----------- */
-  visible =  false;
+  /* ----------- CHECKBOX ARTIST ----------- */
   artistShow() {
-    this.visible = !this.visible;
+    this.isArtiste = !this.isArtiste;
   }
+
   /* ----------- ERROR MESSAGE ID ----------- */
   getErrorMessageId() {
-    if (this.id.hasError('required')) {
+    if (this.username.hasError('required')) {
       return 'L\'identifiant est requis';
     }
   }
+
   /* ----------- ERROR MESSAGE EMAIL ----------- */
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {
@@ -82,10 +92,11 @@ export class SigninComponent implements OnInit {
       return 'L\'email est invalide';
     }
   }
+
   /* ----------- ERROR MESSAGE PASSWORD ----------- */
   getErrorMessagePassword() {
     if (this.password.hasError('required')) {
-      return  'Le mot de passe est requis';
+      return 'Le mot de passe est requis';
     }
     if (this.password.hasError('minlength')) {
       return 'Le mot de passe doit comporter 8 caractères minimum,';
@@ -94,56 +105,87 @@ export class SigninComponent implements OnInit {
       return 'Le mot de passe doit comporter au moins une majuscule, une minuscule et un chiffre';
     }
   }
-  /* ----------- MATCH PASSWORD ----------- */
-  private matchingPasswords( control: AbstractControl ) {
-    const password = control.get( 'password' );
-    const confirm = control.get( 'confirmPassword' );
 
-    if ( !password || !confirm ) {
+  /* ----------- MATCHING PASSWORD ----------- */
+  private matchingPasswords(control: AbstractControl) {
+    const password = control.get('password');
+    const confirm = control.get('confirmPassword');
+
+    if (!password || !confirm) {
       return null;
     }
 
     if (password.invalid) {
-      return {invalidPassword : true};
+      return {invalidPassword: true};
     }
 
-    console.log(password.value);
-    console.log(confirm.value);
-    console.log(password.value === confirm.value);
-
-    return password.value === confirm.value ? null : { nomatch: true };
+    return password.value === confirm.value ? null : {nomatch: true};
   }
+
   /* ----------- ERROR MESSAGE CITY ----------- */
   getErrorMessageCity() {
     if (this.city.hasError('required')) {
       return 'Le nom de la ville est requis';
     }
   }
+
   /* ----------- SUBMIT FORM ----------- */
   handleSubmit() {
-    console.log(this.userForm.value);
 
-    const city = this.cities.find(value => value.nom === this.userForm.value.city);
-    console.log('VILLE : ', city);
+    const city = this.cities.find(item => item.nom === this.userForm.value.city);
 
-    // console.log(this.userForm.value.password);
+    const user = {
+      username : this.userForm.value.username,    // TODO : rename id by username
+      password : this.userForm.value.passwords.password,
+      email : this.userForm.value.email,
+      ville : city.nom,
+      codeVille : city.code,
+      codeDepartement: city.codeDepartement,
+    };
+
+    if (this.isArtiste) {
+      user['artiste'] = {
+        artisteNom : this.userForm.value.artistName,
+        descriptionCourte : this.userForm.value.artistDescription,
+      };
+    }
+
+    console.log('TO SEND ', user);
+
+    this.createUser(user);
   }
+
+  /* ----------- SUBMIT FORM API USER ----------- */
+  createUser(user) {
+
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig()}${this.API_USERS}`, user)
+      .subscribe(
+        data => {
+          console.log('POST Request is successful', data);
+        },
+        error => {
+          console.log('Error', error);
+        }
+      );
+  }
+
   /* ----------- GOOGLE API CITY NAME ----------- */
   private cityNameApi(datas) {
     return this.http.get(datas);
   }
+
   /* ----------- AUTO COMPLETE  ----------- */
   private cityName(): any {
     this.city.valueChanges.subscribe(
       (value) => {
         this.cityNameApi(`${this.url}${value}`)
           .subscribe((data: any[]) => {
-              console.log(data);
-              this.cities = data;
-          });
-        },
-      );
-    }
+            this.cities = data;
+        });
+      },
+    );
+  }
+
   ngOnInit() {
     this.cityName();
   }
