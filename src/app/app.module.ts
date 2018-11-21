@@ -40,6 +40,8 @@ import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
 import { ArtistService } from './services/artist/artist.service';
 import { ContactComponent } from './pages/contact/contact.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { DisconnectComponent } from './pages/disconnect/disconnect.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     MenuHamburgerComponent,
     MenuArrowComponent,
     MenuTitleComponent,
-    ContactComponent
+    ContactComponent,
+    UserProfileComponent,
+    DisconnectComponent
   ],
   imports: [
     BrowserModule,
