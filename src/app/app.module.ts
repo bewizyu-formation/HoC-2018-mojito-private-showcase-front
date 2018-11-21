@@ -74,9 +74,9 @@ import { ArtistService } from './services/artist/artist.service';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    UserService,
     EventService,
     ArtistService,
+    UserService,
     {provide: APP_CONFIG, useValue: environment},
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},
