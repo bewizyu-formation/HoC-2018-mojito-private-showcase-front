@@ -11,7 +11,7 @@ import { ArtistService } from '../../../services/artist/artist.service';
 export class HomeComponent implements OnInit {
 
   description = 'lorem ipsum lorem ipsum ';
-  url = 'https://jsonplaceholder.typicode.com/photos';
+  url = '/artistes/{artisteId}';
   artists: any[];
 
   constructor(private http: HttpClient,
