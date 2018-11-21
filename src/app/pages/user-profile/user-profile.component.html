@@ -1,3 +1,32 @@
-<p>
-  user-profile works!
-</p>
+<form class="form-container">
+  <h3 *ngFor="let user of users | slice:0:1">
+    Profil de {{ user.name }}
+  </h3>
+
+
+    <mat-form-field>
+      <input matInput placeholder="Ancien mot de passe" type="password" formControlName="password">
+    </mat-form-field>
+
+    <div class="passwords" formGroupName="passwords">
+    <mat-form-field>
+      <input matInput placeholder="Mot de passe" type="password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Confirmez le mot de passe" formControlName="confirmPassword">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <input matInput placeholder="Entrer votre Email" type="email" name="email" formControlName="email" [formControl]="email" required>
+  </mat-form-field>
+
+  <div class="form-button">
+    <button mat-raised-button type="reset" routerLink="/home" class="color-annuler">Annuler</button>
+    <button mat-raised-button type="submit" routerLink="/home" class="color-valider">Valider</button>
+  </div>
+</form>
+
+
+
