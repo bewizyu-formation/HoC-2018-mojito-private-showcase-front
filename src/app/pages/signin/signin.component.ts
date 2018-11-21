@@ -158,7 +158,7 @@ export class SigninComponent implements OnInit {
   /* ----------- SUBMIT FORM API USER ----------- */
   createUser(user) {
 
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig()}${this.API_USERS}`, user)
+    return this.http.post(`${this.env.getPrivateShowcaseApiConfig()}${this.API_USERS}`, user)
       .subscribe(
         data => {
           console.log('POST Request is successful', data);
