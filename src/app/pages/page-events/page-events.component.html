@@ -1,20 +1,28 @@
-<div class="global">
-  <div id="items">
+<main>
+
   <h3>Filtrer les évènements</h3>
-  <mat-checkbox>Invitations</mat-checkbox>
-  <mat-checkbox>Organisateur</mat-checkbox>
-  <mat-checkbox>À venir</mat-checkbox>
-  <mat-checkbox>Passés</mat-checkbox>
-  </div>
-  <section>
-    <span>Date</span>
+
+  <section class="checkbox">
+    <mat-checkbox>Invitations</mat-checkbox>
+    <mat-checkbox>Organisateur</mat-checkbox>
+    <mat-checkbox>À venir</mat-checkbox>
+    <mat-checkbox>Passés</mat-checkbox>
   </section>
-<br>
-  <section>
-    <span>Date</span>
+
+  <section class="zone" *ngFor="let user of users">
+    <p>VEN 12/10</p>
+    <img src="http://s3.amazonaws.com/quietus_production/images/articles/7183/The_who_1318778418_resize_460x400.jpg">
+    <div class="block-infos">
+      <h1>{{user.username}}</h1>
+      <div class="infos">
+        <mat-icon>mail</mat-icon>
+        <div class="adress">
+          <div> {{user.address.suite}} {{user.address.street}} </div>
+          <div> {{user.address.zipcode}} {{user.address.city}} </div>
+        </div>
+      </div>
+    </div>
+      <app-rating></app-rating>
   </section>
-  <!--<br>-->
-  <!--<section>-->
-    <!--<span>Date</span>-->
-  <!--</section>-->
-</div>
+
+</main>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-page-events',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageEventsComponent implements OnInit {
 
-  constructor() { }
+  url = 'https://jsonplaceholder.typicode.com/users';
+  urlPhotos = 'https://jsonplaceholder.typicode.com/photos';
+  users: any[];
+  photos: any[];
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(this.url)
+      .subscribe((response: any []) => {
+        this.users = response;
+      });
+    this.http.get(this.urlPhotos)
+      .subscribe((response: any[]) => {
+        this.photos = response;
+      });
   }
 
 }
