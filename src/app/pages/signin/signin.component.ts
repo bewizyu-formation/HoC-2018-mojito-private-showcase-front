@@ -12,7 +12,7 @@ export class SigninComponent implements OnInit {
 
   url = 'https://geo.api.gouv.fr/communes?nom=';
   cities: any[];
-  API_USERS: any = 'users';
+  API_USERS: any = '/users';
 
   public username: FormControl;
   public email: FormControl;
@@ -159,7 +159,8 @@ export class SigninComponent implements OnInit {
 
   /* ----------- SUBMIT FORM API USER ----------- */
   createUser(user) {
-    return this.http.put(`${this.env.getPrivateShowcaseApiConfig()}${this.API_USERS}`, user)
+    console.log(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}/`);
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}`, user)
       .subscribe(
         data => {
           console.log('POST Request is successful', data);
