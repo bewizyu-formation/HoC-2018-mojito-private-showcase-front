@@ -6,13 +6,16 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  // url: string = 'http'
 
   /**
    * Authentification JWT Token
    */
   public token: string;
 
-  constructor(private userRepository: UserRepository, private http: HttpClient) {
+  constructor(
+    private userRepository: UserRepository,
+    private http: HttpClient) {
   }
 
   /**
@@ -31,4 +34,9 @@ export class UserService {
         });
     });
   }
+
+
+  /*get(username: string, password: string) {
+    this.http.get()
+  }*/
 }
