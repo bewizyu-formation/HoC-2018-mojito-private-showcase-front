@@ -29,5 +29,4 @@ export class EnvironmentService {
   getPrivateShowcaseApiConfig () {
     return this.env.server;
   }
-
 }

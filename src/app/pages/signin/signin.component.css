@@ -1,3 +1,7 @@
+mat-form-field, mat-checkbox{
+  margin: 10px 0px;
+}
+
 .form-container {
   width: 30%;
   margin: 5rem auto;
