@@ -11,7 +11,7 @@ import { ArtistService } from '../../../services/artist/artist.service';
 export class HomeComponent implements OnInit {
 
   description = 'lorem ipsum lorem ipsum ';
-  url = 'https://jsonplaceholder.typicode.com/photos';
+  url = '/artistes/{artisteId}';
   artists: any[];
 
   constructor(private http: HttpClient,
@@ -33,13 +33,12 @@ export class HomeComponent implements OnInit {
         }
 
       });
-
 }
 
   getArtist(artist): void {
-    // On recupere les infos de notre artiste
+    // On récupère les infos de notre artiste.
     this.service.getArtist(artist);
-    // Il faut les passer en params de notre prochaine route
+    // Il faut les passer en params de notre prochaine route.
     // A faire ici //
     // Puis on navigue vers notre page artist/id
     this.router.navigate(['/artist-page', artist.title, artist.id]); // Puis

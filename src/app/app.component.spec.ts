@@ -5,8 +5,8 @@ import { APP_CONFIG } from './app.config';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './material.module';
 
-import {HomeComponent} from './pages/homepage/home/home.component';
 
+import { HomeComponent } from './pages/homepage/home/home.component';
 import { BackgroundImageComponent } from './pages/navigation/background-image/background-image.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { NavbarMenuComponent } from './pages/navigation/navbar-menu/navbar-menu.component';
@@ -18,8 +18,8 @@ import { MenuArrowComponent } from './pages/navigation/menu-arrow/menu-arrow.com
 import { MenuTitleComponent } from './pages/navigation/menu-title/menu-title.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {RouterModule} from '@angular/router';
-
+import { RouterModule } from '@angular/router';
+import { SigninComponent } from './pages/signin/signin.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -28,6 +28,7 @@ describe('AppComponent', () => {
         AppComponent,
         WelcomeComponent,
         HomeComponent,
+        SigninComponent,
         BackgroundImageComponent,
         WelcomeComponent,
         NavbarMenuComponent,
