@@ -7,7 +7,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/homepage/home/home.component';
 import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
-import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
+import { ArtistPageComponent } from './pages/artist-pages/artist-page/artist-page.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { PageEventsComponent } from './pages/page-events/page-events.component';
 import {ContactComponent} from './pages/contact/contact.component';

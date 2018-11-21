@@ -20,7 +20,7 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { HomeComponent } from './pages/homepage/home/home.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ArtistPageComponent } from './pages/artist-page/artist-page.component';
+import { ArtistPageComponent } from './pages/artist-pages/artist-page/artist-page.component';
 import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { PageEventsComponent } from './pages/page-events/page-events.component';
@@ -40,6 +40,8 @@ import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
 import { ArtistService } from './services/artist/artist.service';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ArtistPagePresentationComponent } from './pages/artist-pages/artist-page-presentation/artist-page-presentation.component';
+import { ArtistPageFormComponent } from './pages/artist-pages/artist-page-form/artist-page-form.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     MenuHamburgerComponent,
     MenuArrowComponent,
     MenuTitleComponent,
-    ContactComponent
+    ContactComponent,
+    ArtistPagePresentationComponent,
+    ArtistPageFormComponent
   ],
   imports: [
     BrowserModule,
