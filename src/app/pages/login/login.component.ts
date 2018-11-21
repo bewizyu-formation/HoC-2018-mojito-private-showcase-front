@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Validators, FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {UserService} from '../../services/user/user.service';
 
 
 @Component({
@@ -9,25 +10,68 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
+  public form: FormGroup; // mon formulaire
+  // Constantes
+  public readonly passMinLength = 8;
+  public readonly passMaxLength = 30;
+  public readonly passRegex = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$';
 
-  hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'Veuillez entrez votre email' :
-      this.email.hasError('email') ? 'Email invalide' : '';
+  public hidePassword = true;
+
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private usrService: UserService
+    ) {
+    this.form = fb.group({
+      user: fb.group({
+        email: ['', [
+            Validators.required,
+            Validators.email
+          ]
+        ],
+        password: ['', [
+            Validators.required,
+            Validators.minLength(this.passMinLength),
+            Validators.maxLength(this.passMaxLength),
+            Validators.pattern(this.passRegex)
+          ]
+        ]
+      })
+    });
   }
-  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  login(): void {
-    // if(this.username == 'admin' && this.password == 'admin'){
-      this.router.navigate(['home']);
-    // }else {
-    //   alert("Invalid credentials");
-    // }
+  // A la validation du form
+  login(user) { // valeurs d'inputs argument
+   // tentative de connexion
+   //  const isValid = this.usrService.login(user.email, user.password);
+   //
+   //  if (!isValid) { // si connexion KO
+   //    this.form.setErrors({
+   //      invalidLogin: true // Afficher message d'erreur
+   //    });
+   //  } else { // Sinon
+   //      // const usr = this.usrService.get(user.email, user.password); // Recuperer le user
+   //
+   //      if (usr.artist) { // Si user = artiste
+   //        // usr.type = artise
+   //        this.router.navigate(['/home', '/artist', usr.id, usr.departement]); // on va a /home=artist;
+   //      } else {
+   //        this.router.navigate(['/home', '/user', usr.id, usr.departement]); // Sinon on va a /home=user;
+   //      }
+   //  }
   }
+
+
+  // On declare un getter pour acceder plus simplement aux FormsControls cote template
+  get email() {
+    return this.form.get('user.email');
+  }
+  get password() {
+    return this.form.get('user.password');
+  }
+
 }

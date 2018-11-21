@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, Validators, FormGroup, AbstractControl} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {EnvironmentService} from '../../services/environment.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,11 +12,9 @@ export class SigninComponent implements OnInit {
 
   url = 'https://geo.api.gouv.fr/communes?nom=';
   cities: any[];
-  API_BASE_URL: any = 'localhost:8080/';
   API_USERS: any = 'users';
 
-
-  public id: FormControl;
+  public username: FormControl;
   public email: FormControl;
   public password: FormControl;
   public confirmPassword: FormControl;
@@ -24,10 +23,18 @@ export class SigninComponent implements OnInit {
   public artistDescription;
   public userForm: FormGroup;
 
-  constructor(fb: FormBuilder, private http: HttpClient) {
+  /* ----------- VARIABLES D'ENVIRONNEMENT ----------- */
+
+  /* ----------- VISIBLE FOR PASSWORD ----------- */
+  hide = true;
+
+  /* ----------- SHOW ARTIST SIGNIN ----------- */
+  isArtiste = false;
+
+  constructor(fb: FormBuilder, private http: HttpClient, private env: EnvironmentService) {
 
     /* ----------- IDENTIFIANT ----------- */
-    this.id = fb.control('', [Validators.required]);
+    this.username = fb.control('', [Validators.required]);
 
     /* ----------- EMAIL ----------- */
     this.email = fb.control('', [Validators.required, Validators.email]);
@@ -46,7 +53,7 @@ export class SigninComponent implements OnInit {
 
     // Création du groupe (aka le formulaire)
     this.userForm = fb.group({
-      id: this.id,
+      username: this.username,
       email: this.email,
       passwords: fb.group({
           password: this.password,
@@ -64,20 +71,14 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  /* ----------- VARIABLES D'ENVIRONNEMENT ----------- */
-
-  /* ----------- VISIBLE FOR PASSWORD ----------- */
-  hide = true;
-  /* ----------- SHOW ARTIST SIGNIN ----------- */
-  visible = false;
-
+  /* ----------- CHECKBOX ARTIST ----------- */
   artistShow() {
-    this.visible = !this.visible;
+    this.isArtiste = !this.isArtiste;
   }
 
   /* ----------- ERROR MESSAGE ID ----------- */
   getErrorMessageId() {
-    if (this.id.hasError('required')) {
+    if (this.username.hasError('required')) {
       return 'L\'identifiant est requis';
     }
   }
@@ -118,10 +119,6 @@ export class SigninComponent implements OnInit {
       return {invalidPassword: true};
     }
 
-    console.log(password.value);
-    console.log(confirm.value);
-    console.log(password.value === confirm.value);
-
     return password.value === confirm.value ? null : {nomatch: true};
   }
 
@@ -135,21 +132,34 @@ export class SigninComponent implements OnInit {
   /* ----------- SUBMIT FORM ----------- */
   handleSubmit() {
     console.log(this.userForm.value);
-    const city = this.cities.find(value => value.nom === this.userForm.value.city);
+    const city = this.cities.find(item => item.nom === this.userForm.value.city);
     console.log('VILLE : ', city);
-    this.postUser();
+
+    // on creer notre user
+    const user = {
+      username : this.userForm.value.username,    // TODO : rename id by username
+      password : this.userForm.value.passwords.password,
+      email : this.userForm.value.email,
+      ville : city.nom,
+      codeVille : city.code,
+      codeDepartement: city.codeDepartement,
+    };
+
+    if (this.isArtiste) {
+      user['artiste'] = {
+        artisteNom : this.userForm.value.artistName,
+        descriptionCourte : this.userForm.value.artistDescription,
+      };
+    }
+
+    console.log('TO SEND ', user);
+
+    this.createUser(user);
   }
 
   /* ----------- SUBMIT FORM API USER ----------- */
-  postUser() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'my-auth-token'
-      })
-    };
-
-    return this.http.post(`${this.API_BASE_URL}${this.API_USERS}`, this.userForm.value, httpOptions)
+  createUser(user) {
+    return this.http.put(`${this.env.getPrivateShowcaseApiConfig()}${this.API_USERS}`, user)
       .subscribe(
         data => {
           console.log('POST Request is successful', data);
@@ -171,9 +181,8 @@ export class SigninComponent implements OnInit {
       (value) => {
         this.cityNameApi(`${this.url}${value}`)
           .subscribe((data: any[]) => {
-            console.log(data);
             this.cities = data;
-          });
+        });
       },
     );
   }
