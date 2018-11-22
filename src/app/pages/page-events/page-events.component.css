@@ -1,25 +1,79 @@
-.global {
+main {
   background-color: white;
-  height: 59rem;
-  width: 80rem;
-  margin: auto;
-}
-
-#items {
-  margin: auto;
-  padding: 10px;
-  text-align: center;
+  width: 125vh;
+  height: 2200px;
+  left: 0;
+  right: 0;
+  margin: 50px auto;
+  position: absolute;
 }
 
 h3 {
-  color: grey;
+  color: #878787;
+  text-align: center;
+  margin-top: 20px;
 }
 
-section {
-  width: 900px;
-  height: 130px;
-  background-color: white;
+mat-checkbox{
+  margin: 0 20px;
+}
+
+.checkbox {
+  text-align: center;
+}
+
+.zone {
+  width: 90%;
+  height: 150px;
   box-shadow: 2px 1px 1px 1px grey;
-  margin: auto;
+  margin: 50px auto;
+  display: flex;
 }
 
+.zone > p {
+  height: 130px;
+  width: 130px;
+  margin: 10px;
+  background-color: #9B9B9B;
+  line-height: 130px;
+  text-align: center;
+}
+
+.zone > img {
+  height: 130px;
+  width: 130px;
+  margin: 10px;
+}
+
+.block-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.infos {
+  display: flex;
+}
+
+.adress {
+  margin-left: 10px;
+}
+
+.block-center {
+  width: 150px;
+}
+
+.ratings {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.booker {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.validate {
+  display: flex;
+  margin: 0 auto;
+}
