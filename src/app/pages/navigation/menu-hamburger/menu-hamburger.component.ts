@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu-hamburger.component.css']
 })
 export class MenuHamburgerComponent implements OnInit {
+  user = 1;
 
   constructor(private router: Router) { }
 
@@ -19,7 +20,7 @@ export class MenuHamburgerComponent implements OnInit {
   }
 
   navigateToHome() {
-    return this.router.navigate(['home']);
+    return this.router.navigate(['home', , this.user]); // TODO : changer 'this.user' en 'user.id'
   }
 
   navigateToContacts() {

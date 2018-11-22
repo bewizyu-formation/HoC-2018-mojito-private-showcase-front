@@ -10,15 +10,17 @@ import _ from 'lodash';
 })
 
 export class NavbarMenuComponent implements OnInit {
+  // @input() user;
+
   isWelcome: boolean;
   isSigin: boolean;
   isLogin: boolean;
   isHome: boolean;
+  isUserProfil: boolean;
   isArtistPage: boolean;
-  isPageEvents: boolean;
   isPageCreateEvent: boolean;
-  isArtistProfil: boolean;
-  isUserProfile: boolean;
+  isPageEvents: boolean;
+  isPageContact: boolean;
 
   title = 'Private ShowCase';
   currentUrl: string;
@@ -36,12 +38,12 @@ export class NavbarMenuComponent implements OnInit {
       this.isWelcome = (this.currentUrl === '/' ? true : false);
       this.isSigin = (this.currentUrl === '/sigin' ? true : false);
       this.isLogin = (this.currentUrl === '/login' ? true : false);
-      this.isHome = (_.startsWith(this.currentUrl, '/home/').currentUrl === '/home/' ? true : false);
-      this.isArtistPage = (this.currentUrl === '/artist-page' ? true : false);
-      this.isArtistProfil = (this.currentUrl === '/artist-profil' ? true : false);
-      this.isPageCreateEvent = (this.currentUrl === '/event-create/:eventId' ? true : false);
+      this.isHome = (_.startsWith(this.currentUrl, '/home/') ? true : false); // ATTENTION SI BUG FAIRE 'npm install'
+      this.isUserProfil = (_.startsWith(this.currentUrl, '/user-profil/') ? true : false);
+      this.isArtistPage = (_.startsWith(this.currentUrl, '/artist-page/') ? true : false);
+      this.isPageCreateEvent = (_.startsWith(this.currentUrl, '/event-create/') ? true : false);
       this.isPageEvents = (this.currentUrl === '/events' ? true : false);
-      this.isUserProfile = (this.currentUrl === '/user-profile' ? true : false);
+      this.isPageContact = (this.currentUrl === '/contact' ? true : false);
     });
   }
 
