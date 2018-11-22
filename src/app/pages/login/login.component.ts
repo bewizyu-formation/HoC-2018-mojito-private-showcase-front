@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/user/user.service';
+import {userError} from '@angular/compiler-cli/src/transformers/util';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
       user: fb.group({
         email: ['', [
             Validators.required,
-            Validators.email
+            // Validators.email
           ]
         ],
         password: ['', [
@@ -45,24 +46,19 @@ export class LoginComponent implements OnInit {
   }
 
   // A la validation du form
-  login(user) { // valeurs d'inputs argument
+  login(data) { // valeurs d'inputs argument
    // tentative de connexion
-   //  const isValid = this.usrService.login(user.email, user.password);
-   //
-   //  if (!isValid) { // si connexion KO
-   //    this.form.setErrors({
-   //      invalidLogin: true // Afficher message d'erreur
-   //    });
-   //  } else { // Sinon
-   //      // const usr = this.usrService.get(user.email, user.password); // Recuperer le user
-   //
-   //      if (usr.artist) { // Si user = artiste
-   //        // usr.type = artise
-   //        this.router.navigate(['/home', '/artist', usr.id, usr.departement]); // on va a /home=artist;
-   //      } else {
-   //        this.router.navigate(['/home', '/user', usr.id, usr.departement]); // Sinon on va a /home=user;
-   //      }
-   //  }
+    this.usrService.login(data.user.email, data.user.password)
+      .then(
+        () => {
+            this.router.navigate(['/home']);
+        }
+      )
+      .catch(() =>
+        this.form.setErrors({
+          invalidLogin: true // Afficher message d'erreur
+        })
+      );
   }
 
 
