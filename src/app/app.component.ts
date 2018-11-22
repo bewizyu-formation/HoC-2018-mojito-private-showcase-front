@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {UserService} from './services/user/user.service';
 import {HelloRepository} from './hello/hello.repository';
 import {HttpErrorResponse} from '@angular/common/http';
+import {NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isWelcome: boolean;
   title = 'Private ShowCase';
   token: string;
 

@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     // Il faut les passer en params de notre prochaine route.
     // A faire ici //
     // Puis on navigue vers notre page artist/id
-    this.router.navigate(['/artist-page', artist.title, artist.id]); // Puis
+    this.router.navigate(['/artist-page', artist.id]); // Puis
   }
 
 }

@@ -46,6 +46,7 @@ import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
 import { ArtistService } from './services/artist/artist.service';
 import { CardComponent } from './pages/artist-pages/card/card.component';
+import {MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 
 @NgModule({
@@ -83,12 +84,15 @@ import { CardComponent } from './pages/artist-pages/card/card.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [
     EventService,
     ArtistService,
     UserService,
+    MatDatepickerModule,
     {provide: APP_CONFIG, useValue: environment},
     {provide : HTTP_INTERCEPTORS, useClass : CommonHeadersInterceptorService, multi: true},
     {provide : HTTP_INTERCEPTORS, useClass : TokenInterceptorService, multi: true},

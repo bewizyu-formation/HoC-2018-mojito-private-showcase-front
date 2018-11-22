@@ -25,10 +25,11 @@
   <app-menu-hamburger *ngIf="isHome"></app-menu-hamburger>
 
   <!-- routes :
-  /signin /login /AllEventsPage /artistPage/{Id} /artistProfil/{Id}
+  /signin /login /AllEventsPage /artistPage/{Id} /userProfil/{Id}
 
   MENU "ARROW" -->
-  <app-menu-arrow (click)="goBack()" *ngIf="isSigin || isLogin || isPageEvents || isArtistPage || isUserProfil"></app-menu-arrow>
+  <app-menu-arrow (click)="goBack()" *ngIf="isSigin || isLogin || isPageEvents || isArtistPage || isUserProfil || isPageCreateEvent"></app-menu-arrow>
+
 </mat-toolbar>
 
 
