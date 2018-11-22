@@ -16,11 +16,13 @@
               <input formControlName="email" matInput
                      placeholder="Email" type="email"
                      required>
-              <mat-hint>Entrer votre adresse mail</mat-hint>
+              <!--<mat-hint>Entrer votre adresse mail</mat-hint>-->
 
               <!--gestion des erreurs du login-->
+              <!--<mat-error *ngIf="email.touched && email.invalid">-->
               <mat-error *ngIf="email.touched && email.invalid">
-                <mat-error *ngIf="email.invalid">Le format du mail n'est pas valide.</mat-error>
+                <!--<mat-error *ngIf="email.invalid">Le format du mail n'est pas valide.</mat-error>-->
+                <!--<mat-error *ngIf="email.hasError('required')">Ce champs est requis.</mat-error>-->
                 <mat-error *ngIf="email.hasError('required')">Ce champs est requis.</mat-error>
               </mat-error>
             </mat-form-field>
@@ -38,7 +40,7 @@
                         (click)="hidePassword = !hidePassword">
                 {{hidePassword ? 'visibility_off' : 'visibility'}}
               </mat-icon>
-              <mat-hint>Entrer votre mot de passe</mat-hint>
+              <!--<mat-hint>Entrer votre mot de passe</mat-hint>-->
 
               <!--gestion des erreurs du password-->
               <mat-error *ngIf="password.hasError('required')">Ce champs est requis.</mat-error>
