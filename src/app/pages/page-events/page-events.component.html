@@ -11,7 +11,7 @@
 
   <section class="zone" *ngFor="let user of users">
     <p>VEN 12/10</p>
-    <img src="http://s3.amazonaws.com/quietus_production/images/articles/7183/The_who_1318778418_resize_460x400.jpg">
+    <img src="http://s3.amazonaws.com/quietus_production/images/articles/7183/The_who_1318778418_resize_460x400.jpg"/>
     <div class="block-infos">
       <h1>{{user.username}}</h1>
       <div class="infos">
@@ -22,7 +22,18 @@
         </div>
       </div>
     </div>
+    <div class="block-center"></div>
+    <div class="ratings">
       <app-rating></app-rating>
+      <p>X places restantes</p>
+    </div>
+    <div class="booker">
+      <h3 style="color:black">Validation ?</h3>
+      <div class="validate">
+        <mat-icon>clear</mat-icon>
+        <mat-icon>done</mat-icon>
+      </div>
+    </div>
   </section>
 
 </main>

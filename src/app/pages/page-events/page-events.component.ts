@@ -9,9 +9,7 @@ import {HttpClient} from '@angular/common/http';
 export class PageEventsComponent implements OnInit {
 
   url = 'https://jsonplaceholder.typicode.com/users';
-  urlPhotos = 'https://jsonplaceholder.typicode.com/photos';
   users: any[];
-  photos: any[];
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +17,6 @@ export class PageEventsComponent implements OnInit {
     this.http.get(this.url)
       .subscribe((response: any []) => {
         this.users = response;
-      });
-    this.http.get(this.urlPhotos)
-      .subscribe((response: any[]) => {
-        this.photos = response;
       });
   }
 
