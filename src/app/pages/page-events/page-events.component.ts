@@ -19,5 +19,4 @@ export class PageEventsComponent implements OnInit {
         this.users = response;
       });
   }
-
 }
