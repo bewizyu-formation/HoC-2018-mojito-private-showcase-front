@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  url = 'https://jsonplaceholder.typicode.com/users';
+  users: any[];
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(this.url)
+      .subscribe((response: any[]) => {
+        this.users = response;
+      });
   }
-
 }
