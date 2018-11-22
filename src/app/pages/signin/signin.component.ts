@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, Validators, FormGroup, AbstractControl} from '@angular/forms';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {EnvironmentService} from '../../services/environment.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -23,15 +24,13 @@ export class SigninComponent implements OnInit {
   public artistDescription;
   public userForm: FormGroup;
 
-  /* ----------- VARIABLES D'ENVIRONNEMENT ----------- */
-
   /* ----------- VISIBLE FOR PASSWORD ----------- */
   hide = true;
 
   /* ----------- SHOW ARTIST SIGNIN ----------- */
   isArtiste = false;
 
-  constructor(fb: FormBuilder, private http: HttpClient, private env: EnvironmentService) {
+  constructor(fb: FormBuilder, private http: HttpClient, private env: EnvironmentService, private router: Router) {
 
     /* ----------- IDENTIFIANT ----------- */
     this.username = fb.control('', [Validators.required]);
@@ -160,6 +159,9 @@ export class SigninComponent implements OnInit {
   /* ----------- SUBMIT FORM API USER ----------- */
   createUser(user) {
     console.log(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}/`);
+    if (this.userForm.valid) {
+      this.router.navigate(['/login']);
+    }
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}`, user)
       .subscribe(
         data => {
