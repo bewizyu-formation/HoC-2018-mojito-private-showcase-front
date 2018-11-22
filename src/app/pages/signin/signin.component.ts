@@ -162,7 +162,7 @@ export class SigninComponent implements OnInit {
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}`, user)
       .subscribe(
         data => {
-          // console.log('POST Request is successful', data);
+          console.log('POST Request is successful', data);
           this.router.navigate(['/login']);
         },
         error => {

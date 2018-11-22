@@ -14,7 +14,7 @@ export class MenuProfilComponent implements OnInit {
   }
 
   navigateToArtisteProfil() {
-    return this.router.navigate(['artist-page/:artistName/:artistId']);
+    return this.router.navigate(['artiste-profile']);
   }
 
   navigateToUserProfil() {
@@ -22,6 +22,6 @@ export class MenuProfilComponent implements OnInit {
   }
 
   navigateToDisconnect() {
-    return this.router.navigate(['disconnect']);
+    return this.router.navigate(['welcome']);
   }
 }
