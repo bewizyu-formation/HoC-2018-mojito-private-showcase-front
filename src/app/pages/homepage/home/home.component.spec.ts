@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { RouterModule} from '@angular/router';
-import {MaterialModule} from '../../../material.module';
-import {MatGridListModule} from '@angular/material';
-import { HttpClientModule} from '@angular/common/http';
+import { MaterialModule } from '../../../material.module';
+import { MatGridListModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
