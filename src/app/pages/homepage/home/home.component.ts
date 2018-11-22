@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ArtistService } from '../../../services/artist/artist.service';
+import {UserService} from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   artists: any[];
 
   constructor(private http: HttpClient,
+              private serviceUser: UserService,
               private service: ArtistService,
               private router: Router
   ) {
@@ -43,4 +45,5 @@ export class HomeComponent implements OnInit {
     // Puis on navigue vers notre page artist/id
     this.router.navigate(['/artist-page', artist.title, artist.id]); // Puis
   }
+
 }

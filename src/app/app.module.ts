@@ -30,7 +30,6 @@ import { ListComponent } from './pages/homepage/list/list.component';
 import { ArtistPageComponent } from './pages/artist-pages/artist-page/artist-page.component';
 import { ArtistPagePresentationComponent } from './pages/artist-pages/artist-page-presentation/artist-page-presentation.component';
 import { ArtistPageFormComponent } from './pages/artist-pages/artist-page-form/artist-page-form.component';
-import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { PageEventsComponent } from './pages/page-events/page-events.component';
@@ -58,7 +57,6 @@ import { CardComponent } from './pages/artist-pages/card/card.component';
     LoginComponent,
     HomeComponent,
     ArtistPageComponent,
-    ArtistProfilComponent,
     CreateEventComponent,
     PageEventsComponent,
     RatingComponent,

@@ -6,30 +6,23 @@ import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/homepage/home/home.component';
-import { ArtistProfilComponent } from './pages/artist-profil/artist-profil.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { ArtistPageComponent } from './pages/artist-pages/artist-page/artist-page.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { PageEventsComponent } from './pages/page-events/page-events.component';
 import {ContactComponent} from './pages/contact/contact.component';
-import {UserProfileComponent} from './pages/user-profile/user-profile.component';
-import {DisconnectComponent} from './pages/disconnect/disconnect.component';
 
 // TABLEAU AVEC MES URLs LIES AUX COMPOSANTS
 export const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'login', component: LoginComponent },
   { path: 'sigin', component: SigninComponent },
-  { path: 'home', component: HomeComponent }, // Utiliser les routes ci-dessous et supprimer celle-ci
-  { path: 'home/:artistId', component: HomeComponent },
-  { path: 'home/:userId', component: HomeComponent },
-  { path: 'artist-page/:artistName/:artistId', component: ArtistPageComponent },
-  { path: 'artist-profil/:artistId', component: ArtistProfilComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home/:userId', component: HomeComponent }, // PROTEGER LA ROUTE
+  { path: 'user-profil/:userId', component: UserProfileComponent }, // PROTEGER LA ROUTE
+  { path: 'artist-page/:userId', component: ArtistPageComponent }, // PROTEGER LA ROUTE
   { path: 'event-create/:eventId', component: CreateEventComponent },
   { path: 'events', component: PageEventsComponent },
-  { path: 'user-profile', component: UserProfileComponent },
-  { path: 'welcome', component: WelcomeComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'artiste-profile', component: ArtistProfilComponent },
   { path: '**', component: NotFoundComponent },
   { path: '',
     redirectTo: '/',
