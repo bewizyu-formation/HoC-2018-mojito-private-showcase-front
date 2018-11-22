@@ -159,13 +159,11 @@ export class SigninComponent implements OnInit {
   /* ----------- SUBMIT FORM API USER ----------- */
   createUser(user) {
     console.log(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}/`);
-    if (this.userForm.valid) {
-      this.router.navigate(['/login']);
-    }
     return this.http.put(`${this.env.getPrivateShowcaseApiConfig().uri}${this.API_USERS}`, user)
       .subscribe(
         data => {
-          console.log('POST Request is successful', data);
+          // console.log('POST Request is successful', data);
+          this.router.navigate(['/login']);
         },
         error => {
           console.log('Error', error);
