@@ -1,16 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArtistPageFormComponent } from './artist-page-form.component';
+import { CardComponent } from './card.component';
 import {MaterialModule} from '../../../material.module';
-import {CardComponent} from '../card/card.component';
+import {MatGridListModule} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
-describe('ArtistPageFormComponent', () => {
-  let component: ArtistPageFormComponent;
-  let fixture: ComponentFixture<ArtistPageFormComponent>;
+describe('CardComponent', () => {
+  let component: CardComponent;
+  let fixture: ComponentFixture<CardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistPageFormComponent, CardComponent ],
+      declarations: [ CardComponent ],
       imports : [
         MaterialModule
       ]
@@ -19,7 +21,7 @@ describe('ArtistPageFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArtistPageFormComponent);
+    fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

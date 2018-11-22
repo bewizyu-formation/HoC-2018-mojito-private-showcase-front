@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-artist-page-presentation',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist-page-presentation.component.css']
 })
 export class ArtistPagePresentationComponent implements OnInit {
+  //  PASSER TOUS LES PARAMS DE L'ARTISTE AVEC DES @Input() A PARTIR DE LA PAGE HOME
+  public image: any;
+  public artistName: string;
+  public subtitle: string;
+  public description: string;
+
 
   constructor() { }
 

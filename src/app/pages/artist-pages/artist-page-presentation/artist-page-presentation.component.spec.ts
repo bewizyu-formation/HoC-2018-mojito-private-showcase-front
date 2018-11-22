@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArtistPagePresentationComponent } from './artist-page-presentation.component';
+import {MaterialModule} from '../../../material.module';
+import {CardComponent} from '../card/card.component';
+import {RatingComponent} from '../../homepage/rating/rating.component';
 
 describe('ArtistPagePresentationComponent', () => {
   let component: ArtistPagePresentationComponent;
@@ -8,7 +11,14 @@ describe('ArtistPagePresentationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArtistPagePresentationComponent ]
+      declarations: [
+        ArtistPagePresentationComponent,
+        CardComponent,
+        RatingComponent
+      ],
+      imports : [
+        MaterialModule
+      ]
     })
     .compileComponents();
   }));
