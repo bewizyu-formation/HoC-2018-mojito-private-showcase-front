@@ -19,7 +19,6 @@ export const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sigin', component: SigninComponent },
-  { path: 'home', component: HomeComponent }, // Utiliser les routes ci-dessous et supprimer celle-ci
   { path: 'home/:artistId', component: HomeComponent },
   { path: 'home/:userId', component: HomeComponent },
   { path: 'artist-page/:artistName/:artistId', component: ArtistPageComponent },
