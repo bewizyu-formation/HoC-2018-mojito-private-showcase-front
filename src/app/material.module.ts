@@ -15,8 +15,10 @@ import {
   MatGridListModule,
   MatSnackBarModule,
   MatTooltipModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatDatepickerModule
 } from '@angular/material';
+
 
 import {NgModule} from '@angular/core';
 
@@ -38,7 +40,8 @@ import {NgModule} from '@angular/core';
     MatGridListModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule
   ],
 })
 export class MaterialModule { }

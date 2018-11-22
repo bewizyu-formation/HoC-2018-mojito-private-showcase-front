@@ -1,3 +1,34 @@
-<p>
-  create-event works!
-</p>
+<app-card title="Créez un évènement">
+  <mat-card-content *ngFor="let user of users | slice:0:1">
+    <img src="{{user.url}}" alt=""><h1>{{user.title}}</h1>
+    <p *ngFor="let post of posts | slice:0:1">
+      {{post.body}}
+    </p>
+    <div class="titre-rating">
+      <mat-card-title></mat-card-title>
+      <app-rating></app-rating>
+    </div>
+
+    <mat-card-subtitle></mat-card-subtitle>
+
+  </mat-card-content>
+</app-card>
+
+<br>
+<br>
+
+<div id="bloc">
+      <span>
+       <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choisir une date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field>
+        <mat-form-field id="Input1">
+          <input matInput placeholder="Nombre de personnes">
+        </mat-form-field>
+      </span>
+
+      <button mat-raised-button type="submit"  class="color-valider">Valider</button>
+
+</div>
