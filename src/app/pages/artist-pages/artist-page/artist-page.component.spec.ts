@@ -6,6 +6,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ArtistPageFormComponent} from '../artist-page-form/artist-page-form.component';
 import {ArtistPagePresentationComponent} from '../artist-page-presentation/artist-page-presentation.component';
+import {CardComponent} from '../card/card.component';
+import {RatingComponent} from '../../homepage/rating/rating.component';
 
 
 describe('ArtistPageComponent', () => {
@@ -15,6 +17,8 @@ describe('ArtistPageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        CardComponent,
+        RatingComponent,
         ArtistPageComponent,
         ArtistPageFormComponent,
         ArtistPagePresentationComponent
@@ -34,5 +38,8 @@ describe('ArtistPageComponent', () => {
     fixture = TestBed.createComponent(ArtistPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  });
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

@@ -1,3 +1,17 @@
-<p>
-  artist-page-presentation works!
-</p>
+<!--FORMULAIRE DE PRESENTATION-->
+<app-card title="Presentation">
+    <img mat-card-image src="{{ image }}" alt="Photo de {{ artistName }}">
+  <mat-card-content>
+
+    <div class="titre-rating">
+      <mat-card-title>{{ artistName }}</mat-card-title>
+      <app-rating></app-rating>
+    </div>
+
+    <mat-card-subtitle>{{ subtitle }}</mat-card-subtitle>
+    <p>
+      {{ description }}
+    </p>
+  </mat-card-content>
+
+</app-card>

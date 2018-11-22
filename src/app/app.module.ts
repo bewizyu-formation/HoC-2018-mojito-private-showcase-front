@@ -46,6 +46,7 @@ import { RouterModule } from '@angular/router';
 import { UserService } from './services/user/user.service';
 import { EventService } from './services/event/event.service';
 import { ArtistService } from './services/artist/artist.service';
+import { CardComponent } from './pages/artist-pages/card/card.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { ArtistService } from './services/artist/artist.service';
     ArtistPagePresentationComponent,
     ArtistPageFormComponent,
     UserProfileComponent,
-    DisconnectComponent
+    DisconnectComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
