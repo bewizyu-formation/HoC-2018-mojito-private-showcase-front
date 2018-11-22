@@ -22,6 +22,6 @@ export class MenuProfilComponent implements OnInit {
   }
 
   navigateToDisconnect() {
-    return this.router.navigate(['welcome']);
+    return this.router.navigate(['']);
   }
 }

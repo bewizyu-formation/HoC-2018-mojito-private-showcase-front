@@ -14,8 +14,8 @@
             <!--IDENTIFIANT-->
             <mat-form-field class="form-email">
               <input formControlName="email" matInput
-                     placeholder="Email" type="email"
-                     required>
+                     placeholder="Identifiant" type="email"
+                     >
               <!--<mat-hint>Entrer votre adresse mail</mat-hint>-->
 
               <!--gestion des erreurs du login-->
@@ -23,7 +23,7 @@
               <mat-error *ngIf="email.touched && email.invalid">
                 <!--<mat-error *ngIf="email.invalid">Le format du mail n'est pas valide.</mat-error>-->
                 <!--<mat-error *ngIf="email.hasError('required')">Ce champs est requis.</mat-error>-->
-                <mat-error *ngIf="email.hasError('required')">Ce champs est requis.</mat-error>
+                <mat-error *ngIf="email.hasError('required')">L'identifiant est requis</mat-error>
               </mat-error>
             </mat-form-field>
 
@@ -33,7 +33,7 @@
               <input formControlName="password" matInput
                      placeholder="Mot de passe"
                      [type]="hidePassword ? 'password' : 'text'"
-                     required>
+                     >
 
               <!--icone oeil-->
               <mat-icon matSuffix
@@ -43,7 +43,7 @@
               <!--<mat-hint>Entrer votre mot de passe</mat-hint>-->
 
               <!--gestion des erreurs du password-->
-              <mat-error *ngIf="password.hasError('required')">Ce champs est requis.</mat-error>
+              <mat-error *ngIf="password.hasError('required')">Le mot de passe est requis</mat-error>
               <mat-error *ngIf="password.hasError('minlength') || password.hasError('maxlength') || password.hasError('pattern')">
                 Le mots de passe doit avoir :
                 <li>Au minimum {{ passMinLength }} et au maximum {{ passMaxLength }} caractères.</li>
