@@ -16,7 +16,7 @@ describe('ArtistPagePresentationComponent', () => {
         CardComponent,
         RatingComponent
       ],
-      imports : [
+      imports: [
         MaterialModule
       ]
     })
