@@ -1,0 +1,21 @@
+section:nth-of-type(1){
+  width: 50%;
+  height: 200px;
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+section:nth-of-type(2){
+  width: 50%;
+  padding: 10px;
+}
+
+p{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
+
+mat-icon{
+  margin-right: 10px;
+  margin-top: 10px;
+}

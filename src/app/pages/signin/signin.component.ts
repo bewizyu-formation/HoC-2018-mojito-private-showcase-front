@@ -136,7 +136,7 @@ export class SigninComponent implements OnInit {
 
     // on creer notre user
     const user = {
-      username : this.userForm.value.username,    // TODO : rename id by username
+      username : this.userForm.value.username,
       password : this.userForm.value.passwords.password,
       email : this.userForm.value.email,
       ville : city.nom,
