@@ -14,6 +14,9 @@ export class CreateEventComponent implements OnInit {
   myUrl = 'https://jsonplaceholder.typicode.com/posts';
   posts: any[];
 
+  intUrl = 'https://jsonplaceholder.typicode.com/users';
+  streets: any[];
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -25,6 +28,11 @@ export class CreateEventComponent implements OnInit {
     this.http.get(this.myUrl)
       .subscribe((res: any[]) => {
         this.posts = res;
+      });
+
+    this.http.get(this.intUrl)
+      .subscribe((res: any[]) => {
+        this.streets = res;
       });
   }
 }
