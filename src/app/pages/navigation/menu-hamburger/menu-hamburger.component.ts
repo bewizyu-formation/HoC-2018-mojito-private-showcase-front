@@ -9,10 +9,20 @@ import { Router } from '@angular/router';
 export class MenuHamburgerComponent implements OnInit {
   user = 1;
 
+  iconName = 'menu';
+
   constructor(private router: Router) { }
 
 
   ngOnInit() {
+  }
+
+  switchIcon() {
+    if (this.iconName === 'menu') {
+      this.iconName = 'close';
+    } else {
+      this.iconName = 'menu';
+    }
   }
 
   navigateToEvents() {
