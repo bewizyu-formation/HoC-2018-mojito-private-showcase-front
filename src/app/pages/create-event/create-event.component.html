@@ -1,17 +1,23 @@
-<app-card title="Créez un évènement">
+<app-card>
   <mat-card-content *ngFor="let user of users | slice:0:1">
-    <img src="{{user.url}}" alt=""><h1>{{user.title}}</h1>
+    <img src="{{user.url}}" alt="">
+
+    <section>
+    <h1>{{user.title}}</h1>
+    <h4 *ngFor="let street of streets | slice:0:1">
+      {{street.company.name}}
+    </h4>
     <p *ngFor="let post of posts | slice:0:1">
       {{post.body}}
     </p>
-    <div class="titre-rating">
-      <mat-card-title></mat-card-title>
-      <app-rating></app-rating>
-    </div>
-
+    </section>
     <mat-card-subtitle></mat-card-subtitle>
-
   </mat-card-content>
+
+  <div class="titre-rating">
+    <mat-card-title></mat-card-title>
+    <app-rating></app-rating>
+  </div>
 </app-card>
 
 <br>
