@@ -1,8 +1,8 @@
-<button mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon>more_vert</mat-icon>
+<button mat-button [matMenuTriggerFor]="menu" (click)="switchIcon()">
+  <mat-icon>{{ iconName }}</mat-icon>
 </button>
 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" (closed)="switchIcon()">
   <button mat-menu-item (click)="navigateToHome()">
     <mat-icon>home</mat-icon>
     <span>Accueil</span>
