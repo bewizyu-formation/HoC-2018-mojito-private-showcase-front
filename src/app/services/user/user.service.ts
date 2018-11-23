@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {UserRepository} from './user.repository';
-import { HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 const TOKEN_KEY = 'TOKEN_KEY';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // url: string = 'http'
+  url = 'https://localhost:8080';
+
+
 
   /**
    * Authentification JWT Token
@@ -15,8 +17,12 @@ export class UserService {
   private _token: string;
 
   constructor(
-    private userRepository: UserRepository) {
+    private userRepository: UserRepository,
+    private http: HttpClient
+  ) {
   }
+
+  /* ------------------  LOGIN AVEC LE BACK ------------------*/
 
   /**
    * Login the user
@@ -35,6 +41,29 @@ export class UserService {
     });
   }
 
+  /* ------------------  OPERATIONS SUR LES USERS  ------------------*/
+
+  getUser() {
+    return this.http.get(this.url + '/users/authenticated');
+  }
+
+  create(user) {
+    return this.http.put(this.url, JSON.stringify(user));
+  }
+
+  update(user) {
+    return this.http.put(this.url + '/users/authenticated', JSON.stringify(user));
+  }
+
+  delete() {
+    return this.http.delete(this.url + '/users/authenticated');
+  }
+
+  handlingErrors() {
+
+  }
+
+  /* ------------------  GETTERS & SETTERS  ------------------*/
   public get token(): string {
     if (this._token) {
       return this._token;
@@ -47,7 +76,10 @@ export class UserService {
     localStorage.setItem(TOKEN_KEY, this._token);
   }
 
-  /*get(username: string, password: string) {
-    this.http.get()
-  }*/
+  get() {
+    return this.http.get(this.url)
+      .subscribe(res => {
+
+      });
+  }
 }

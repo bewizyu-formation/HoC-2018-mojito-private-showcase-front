@@ -14,36 +14,43 @@ export class HomeComponent implements OnInit {
   description = 'lorem ipsum lorem ipsum ';
   url = '/artistes/{artisteId}';
   artists: any[];
+  covers: any[];
 
   constructor(private http: HttpClient,
+              private serviceArtist: ArtistService,
               private serviceUser: UserService,
-              private service: ArtistService,
               private router: Router
   ) {
   }
 
   ngOnInit() {
-    // GET ALL ARTISTS ON INIT FROM ARTIST SERVICES
-    this.service.getAll()
+    // ON RECUPERE DES IMAGES
+    this.http.get('https://jsonplaceholder.typicode.com/photos')
+      .subscribe( (res: any) => {
+        this.covers = res;
+      });
+
+    // ON RECUPERE TOUS LES ARTISTES LIES L'UTILISATEUR CONNECTE
+    this.serviceArtist.getAll()
       .subscribe((response: any[]) => {
-        this.artists = response;
+          this.artists = response;
+          console.log(response);
+        if (!response.length) {
+          alert('Il n\'y a pas artiste dans votre departement');
+        }
       }, (error: Response) => {
         if (error.status === 404) {
           alert('L\'artiste demandé n\'hexiste pas dans notre base de donnée.');
         } else {
           alert('Une erreur inattendue s\'est produite.');
         }
-
       });
 }
 
+  // AU CLIC SUR LE BOUTON 'VOIR'
   getArtist(artist): void {
-    // On récupère les infos de notre artiste.
-    this.service.getArtist(artist);
-    // Il faut les passer en params de notre prochaine route.
-    // A faire ici //
-    // Puis on navigue vers notre page artist/id
-    this.router.navigate(['/artist-page', artist.id]); // Puis
+    this.serviceArtist.getArtist(artist); // On récupère les infos de notre artiste.
+    this.router.navigate(['/artist-page', artist.id]); // Et on navigue vers notre page artist/id
   }
 
 }

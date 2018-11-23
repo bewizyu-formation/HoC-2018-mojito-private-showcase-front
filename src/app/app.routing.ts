@@ -17,7 +17,7 @@ export const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'sigin', component: SigninComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home/:userId', component: HomeComponent }, // PROTEGER LA ROUTE
+  { path: 'home', component: HomeComponent }, // PROTEGER LA ROUTE
   { path: 'user-profil/:userId', component: UserProfileComponent }, // PROTEGER LA ROUTE
   { path: 'artist-page/:userId', component: ArtistPageComponent }, // PROTEGER LA ROUTE
   { path: 'event-create/:eventId', component: CreateEventComponent },

@@ -49,15 +49,15 @@ export class LoginComponent implements OnInit {
    // tentative de connexion
     this.usrService.login(data.user.email, data.user.password)
       .then(
-        () => {
+        (result) => { // Si on a un retour on navigue vers /home
             this.router.navigate(['/home']);
         }
       )
-      .catch(() =>
-        this.form.setErrors({
-          invalidLogin: true // Afficher message d'erreur
-        })
-      );
+      .catch((errors) => {
+        this.form.setErrors({ // Sinon on affiche un message d'erreur
+          invalidLogin: true, // Afficher message d'erreur
+        });
+      });
   }
 
 
@@ -68,5 +68,4 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.form.get('user.password');
   }
-
 }
