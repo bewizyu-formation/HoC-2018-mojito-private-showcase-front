@@ -33,7 +33,7 @@ export class MenuTitleComponent implements OnInit {
       this.isWelcome = (this.currentUrl === '/' ? true : false);
       this.isSigin = (this.currentUrl === '/sigin' ? true : false);
       this.isLogin = (this.currentUrl === '/login' ? true : false);
-      this.isHome = (_.startsWith(this.currentUrl, '/home/') ? true : false); // ATTENTION SI BUG FAIRE 'npm install'
+      this.isHome = (_.startsWith(this.currentUrl, '/home') ? true : false); // ATTENTION SI BUG FAIRE 'npm install'
       this.isArtistPage = (_.startsWith(this.currentUrl, '/artist-page/') ? true : false);
       this.isUserProfile = (_.startsWith(this.currentUrl, '/user-profil/') ? true : false);
       this.isPageCreateEvent = (_.startsWith(this.currentUrl, '/event-create/') ? true : false);

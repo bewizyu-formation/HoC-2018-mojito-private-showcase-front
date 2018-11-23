@@ -5,14 +5,19 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArtistService {
-  private url = 'https://jsonplaceholder.typicode.com/photos';
+  url = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
+
+  /* ------------------  OPERATIONS SUR LES ARTISTES  ------------------*/
+
+  // ON RECUPERE NOS ARTISTES PAR DEPARTEMENTS
   getAll() {
-    return this.http.get(this.url);
+    return this.http.get(this.url + '/artistes/list');
   }
 
+  // ON RECUPERE UN ARTISTE
   getArtist(artist) {
     return this.http.get(this.url + '/' + artist.id);
   }

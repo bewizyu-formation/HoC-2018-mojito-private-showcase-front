@@ -1,12 +1,14 @@
 <mat-grid-list cols="4" rowHeight="2:2">
   <mat-grid-tile *ngFor="let artist of artists | slice:0:8">
     <!--IMAGE DE FOND-->
-    <div class="image" [ngStyle]="{'background-image': 'url(' + artist.url + ')'}"> <!-- artist.url => artist.image -->
+    <section *ngFor="let cover of covers | slice:0:1">
+    <div class="image"
+         [ngStyle]="{'background-image': 'url(' + cover.url + ')'}">
       <!--BLOC DETAILS DE L'ARTISTE-->
       <div class="text">
         <!-- nom, description de l'artiste -->
-        <h2> {{ artist.title }} </h2> <!-- artist.name -->
-        <p> {{ description }} </p> <!-- artist.description -->
+        <h2> {{ artist.artisteNom }} </h2> <!-- artist.name -->
+        <p> {{ artist.descriptionCourte }} </p> <!-- artist.description -->
 
         <section>
           <!-- note de l'artiste -->
@@ -27,5 +29,6 @@
         </section>
       </div>
     </div>
+    </section>
   </mat-grid-tile>
 </mat-grid-list>
